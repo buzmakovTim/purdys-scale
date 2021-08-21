@@ -76,6 +76,7 @@ namespace PortMainScaleTest
         }
 
 
+        // Reset All data Start
         public void resetAllDataMembers()
         {
             //resetTimer(); // Reset timer
@@ -238,14 +239,18 @@ namespace PortMainScaleTest
             shiftRun.autoGenerateReport = Properties.Settings.Default.autoGenerateReport; // Use preconfigured settings
             shiftRun.sendReportAtHour = Properties.Settings.Default.sendReportAtHour; // Use preconfigured settings
             shiftRun.sendReportAtMinute = Properties.Settings.Default.sendReportAtMinute; // Use preconfigured settings
-        }
 
+            //Bar Code
+            shiftRun.BarCode = "";
+            
+        }
+        // Reset All data End
 
         public void Form1_Load(object sender, EventArgs e)
         {
 
 
-            Logger.INFO("Applicationg has been started");   // Logging App Started
+            Logger.INFO("Application has been started");   // Logging App Started
 
             //timerRunning.startTimer(); // Start Timer
             timerTime.Start(); // Timer
