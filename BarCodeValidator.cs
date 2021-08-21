@@ -12,9 +12,14 @@ namespace PortMainScaleTest
         //Set BarCode
         public static void setBarCode(ShiftRun shiftRun, string barCode)
         {
-            shiftRun.BarCode = barCode;
 
-
+            if (!barCode.Equals(""))
+            {
+                shiftRun.BarCode = barCode;
+            }
+            else {
+                shiftRun.BarCode = "";
+            }        
         }
     }
 }
