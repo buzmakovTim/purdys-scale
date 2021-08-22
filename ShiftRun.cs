@@ -60,7 +60,7 @@ namespace PortMainScaleTest
         public int runningEfficiency { get; set; } // Running Efficiency Actual Percentage
         public int expectedEfficiency { get; set; } // Expected Efficiency Percentage
 
-        public int runningTimeInSeconds { get; set; } // Total runing time in Seconds
+        public int runningTimeInSeconds { get; set; } // Total running time in Seconds
 
         public int totalBreakTimeInSeconds { get; set; } // Total break time in Seconds
         public bool isBreak { get; set; } // Is Break 
@@ -72,7 +72,7 @@ namespace PortMainScaleTest
 
         public bool isTimerON { get; set; } // Timer is ON
 
-        public bool isDelaySaving { get; set; } // If Dayly Report file open will be delay for saving
+        public bool isDelaySaving { get; set; } // If Daly Report file open will be delay for saving
 
         public bool isDailyReportSent { get; set; } // True is Day Report has been sent
         public bool isGenerateAndSend { get; set; } // If true we can generate and sent the Daily report for testing
@@ -80,9 +80,10 @@ namespace PortMainScaleTest
         //For Reporting Start
         public bool autoGenerateReport { get; set; } // True if for auto reporting
         public int sendReportAtHour { get; set; } // Send report at this Hour
-        public int sendReportAtMinute { get; set; } // Send report at thiSs Minute
-        public DateTime startTime { get; set; } // When Run start
-        //For Reporting End
+        public int sendReportAtMinute { get; set; } // Send report at this Minute
+        public DateTime startTime { get; set; } // When Run starts
 
+        //For Bar Code 
+        public string BarCode { get; set; } // Bar code
     }
 }
