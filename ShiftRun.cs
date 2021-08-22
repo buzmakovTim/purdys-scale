@@ -77,7 +77,7 @@ namespace PortMainScaleTest
         public bool isDailyReportSent { get; set; } // True is Day Report has been sent
         public bool isGenerateAndSend { get; set; } // If true we can generate and sent the Daily report for testing
 
-        //For Reporting
+        //For Reporting Start
         public bool autoGenerateReport { get; set; } // True if for auto reporting
         public int sendReportAtHour { get; set; } // Send report at this Hour
         public int sendReportAtMinute { get; set; } // Send report at this Minute

@@ -944,7 +944,7 @@
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(70, 17);
             this.labelVersion.TabIndex = 78;
-            this.labelVersion.Text = "Scale v6.0";
+            this.labelVersion.Text = "Scale v5.9";
             // 
             // panel3
             // 
