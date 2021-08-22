@@ -53,8 +53,15 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarcodeCheckerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarcodeCheckerForm.Designer.cs">
+      <DependentUpon>BarcodeCheckerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BarCodeValidator.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="ProductivityCalculator.cs" />
@@ -88,6 +95,9 @@
     <Compile Include="ShiftRun.cs" />
     <Compile Include="TimerRunning.cs" />
     <Compile Include="UnitsPerHour.cs" />
+    <EmbeddedResource Include="BarcodeCheckerForm.resx">
+      <DependentUpon>BarcodeCheckerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>

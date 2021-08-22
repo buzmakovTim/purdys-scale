@@ -83,7 +83,11 @@ namespace PortMainScaleTest
         public int sendReportAtMinute { get; set; } // Send report at this Minute
         public DateTime startTime { get; set; } // When Run starts
 
+
         //For Bar Code 
         public string BarCode { get; set; } // Bar code
+        public bool isBarCodeMatch { get; set; } // Is Bar code Match?
+        public int barCodeCheckAtCount { get; set; } // Check when count 
+    
     }
 }
