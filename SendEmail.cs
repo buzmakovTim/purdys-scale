@@ -40,14 +40,14 @@ namespace PortMainScaleTest
             }
             catch (Exception ex)
             {
-                Logger.ERROR("Exeption thrown while sending IT Help Desk request (sendEmailToHD): " + ex);
+                Logger.ERROR("Exception thrown while sending IT Help Desk request (sendEmailToHD): " + ex);
                 //MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return true;
         }
 
-        // Sed Email to Tim_b if somethig went wrong
+        // Send Email to Tim_b if something went wrong
         public static bool sendEmailToTim(ShiftRun shiftRun, string theReason)
         {
             try
@@ -65,7 +65,7 @@ namespace PortMainScaleTest
             }
             catch (Exception ex)
             {
-                Logger.ERROR("Exeption thrown while sending Email to Tim_B (sendEmailToTim) " + ex);
+                Logger.ERROR("Exception thrown while sending Email to Tim_B (sendEmailToTim) " + ex);
             }
 
             return true;
@@ -117,7 +117,7 @@ namespace PortMainScaleTest
                 int screenWidth = SystemInformation.VirtualScreen.Width;
                 int screenHeight = SystemInformation.VirtualScreen.Height;
 
-             // Take screenshop and attach to Email start
+             // Take screen shot and attach to Email start
                 using (Bitmap bitmap = new Bitmap(screenWidth, screenHeight))
                 {
                     using (Graphics g = Graphics.FromImage(bitmap))
@@ -133,7 +133,7 @@ namespace PortMainScaleTest
                 string fullPath = System.IO.Path.Combine(path);
 
                 mail.Attachments.Add(fullPath, Outlook.OlAttachmentType.olByValue);
-             // Take screenshop and attach to Email end
+             // Take screen shot and attach to Email end
 
                 mail.Importance = Outlook.OlImportance.olImportanceHigh;
                 ((Outlook._MailItem)mail).Send();
@@ -142,7 +142,7 @@ namespace PortMainScaleTest
             }
             catch (Exception ex)
             {
-                Logger.ERROR("Exeption thrown while sending Email to QA (sendEmailToQA)" + ex);
+                Logger.ERROR("Exception thrown while sending Email to QA (sendEmailToQA)" + ex);
             }
         }
 
@@ -170,7 +170,7 @@ namespace PortMainScaleTest
             }
             catch (Exception ex)
             {
-                Logger.ERROR("Exeption thrown while sending Email about data Not been saved in proper place (sendEmailToHDAboutBackUpData)" + ex);
+                Logger.ERROR("Exception thrown while sending Email about data Not been saved in proper place (sendEmailToHDAboutBackUpData)" + ex);
             }
         }
 
@@ -196,7 +196,7 @@ namespace PortMainScaleTest
             }
             catch (Exception ex)
             {
-                Logger.ERROR("Exeption thrown while sending Email about Missing ExcelLibrary.dll (sendEmailToHDAboutMissingDLL)" + ex);
+                Logger.ERROR("Exception thrown while sending Email about Missing ExcelLibrary.dll (sendEmailToHDAboutMissingDLL)" + ex);
             }
         }
 
@@ -220,7 +220,7 @@ namespace PortMainScaleTest
 
             string fileNameFullPath = Path.Combine(path);
 
-            // For muving File
+            // For moving File
             string year = DateTime.Now.Year.ToString();
             string month = String.Format("{0:MMMM}", DateTime.Now);
             //string pathToSave = @"\\hedgehog\Syteline\PacklineScaleData\", "year", "\TestFile.xlsx";
@@ -238,7 +238,7 @@ namespace PortMainScaleTest
                     Outlook._Application _app = new Outlook.Application();
                     Outlook.MailItem mail = (Outlook.MailItem)_app.CreateItem(Outlook.OlItemType.olMailItem);
 
-                    if (!shiftRun.timsTesting) // If Not testing send a regualar report
+                    if (!shiftRun.timsTesting) // If Not testing send a regular report
                     {
                         //mail.To = "elena_s@purdys.com";
                         mail.To = "productionsupervisors@purdys.com";
@@ -250,7 +250,7 @@ namespace PortMainScaleTest
                     }
                     
                     mail.Subject = "PL Daily Report " + dateTime;
-                    mail.Body = "PL Daily Repor is attached";
+                    mail.Body = "PL Daily Report is attached";
 
                     mail.Attachments.Add(fileNameFullPath, Outlook.OlAttachmentType.olByValue); // Attach File and Send
 
@@ -267,7 +267,7 @@ namespace PortMainScaleTest
                 }
                 catch (Exception ex)
                 {
-                    Logger.ERROR("Exeption thrown while sending Daily Report (sendDailyReport)" + ex);
+                    Logger.ERROR("Exception thrown while sending Daily Report (sendDailyReport)" + ex);
                 }
             }
             else

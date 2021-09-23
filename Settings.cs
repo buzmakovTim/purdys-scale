@@ -31,7 +31,7 @@ namespace PortMainScaleTest
             InitializeComponent();
             ManualScaleSerialPort = serial;
             PLScaleSerialPort = serial2;
-         }
+        }
 
         private void Settings_Load(object sender, EventArgs e)
         {
@@ -68,7 +68,7 @@ namespace PortMainScaleTest
             comboBoxManual.Items.AddRange(ports);
             comboBoxManual.Text = Properties.Settings.Default.ManualCOMsettings;
 
-            // For autoreport
+            // For auto report
             comboBoxHour.Text = Properties.Settings.Default.sendReportAtHour.ToString();
             comboBoxMinute.Text = Properties.Settings.Default.sendReportAtMinute.ToString();
 
@@ -131,7 +131,7 @@ namespace PortMainScaleTest
             }
             catch (Exception ex) // Location or PL not Set 
             {
-                MessageBox.Show("Locanion or PL number not selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Location or PL number not selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //Properties.Settings.Default.Save();
 

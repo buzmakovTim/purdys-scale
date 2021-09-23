@@ -240,9 +240,12 @@ namespace PortMainScaleTest
             shiftRun.sendReportAtHour = Properties.Settings.Default.sendReportAtHour; // Use preconfigured settings
             shiftRun.sendReportAtMinute = Properties.Settings.Default.sendReportAtMinute; // Use preconfigured settings
 
-            //Bar Code
-            shiftRun.BarCode = "";
-            
+            //Bar Code Checking
+            shiftRun.BarCode = "13103";              //Hard codded for now. Later will be in settings section
+            shiftRun.isBarCodeMatch = true;
+            shiftRun.barCodeCheckAtCount = 10;       //Hard codded for now. Later will be in settings section
+
+
         }
         // Reset All data End
 
@@ -996,7 +999,7 @@ namespace PortMainScaleTest
 
 
 
-            int hour = shiftRun.runningTimeInSeconds / 3600;  // It was 60 Now 3600 as now we count in Seconds. Calculating which hour is runin right now 
+            int hour = shiftRun.runningTimeInSeconds / 3600;  // It was 60 Now 3600 as now we count in Seconds. Calculating which hour is running right now 
 
             if (hour > currentHour)
             {
@@ -1375,6 +1378,13 @@ namespace PortMainScaleTest
             checkAvgAndSendEmail(shiftRun);
             // Check Error Number and send Email to Tim about it
             checkErrorsAndSendEmailToTim(shiftRun);
+
+            //Open BarCode checker Window
+            if (shiftRun.barCodeCheckAtCount == shiftRun.PlCount) {
+
+                ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
+                //barCodeWindowShow(); // Execute pop up window function
+            }
         }
 
 
@@ -1898,7 +1908,7 @@ namespace PortMainScaleTest
             settings.Dispose();
         }
 
-        // Connected Lables
+        // Connected Labels
         private void PlConnected(bool connected)
         {
             if (connected)
@@ -2210,7 +2220,27 @@ namespace PortMainScaleTest
 
             return minute;
         }
+
+
+        //Bar Code checker Function to Prompt a bar code scanning window START
+        public void barCodeWindowShow() {
+
+            BarcodeCheckerForm barcodeCheckerForm = new BarcodeCheckerForm(shiftRun);
+
+            if(barcodeCheckerForm.ShowDialog() == DialogResult.OK)
+            {
+                shiftRun.barCodeCheckAtCount = (shiftRun.barCodeCheckAtCount + 10);
+                // Here we will do something in case BarCode match with what is set at the beginning
+                
+                barcodeCheckerForm.Dispose();
+            }
+
+            
+
+
+        }
+        //Bar Code checker Function to Prompt a bar code scanning window END
     }
-        
+
 
 }
