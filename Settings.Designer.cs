@@ -52,6 +52,8 @@
             this.comboBoxCHKW = new System.Windows.Forms.ComboBox();
             this.comboBoxPLNumber = new System.Windows.Forms.ComboBox();
             this.labelPaclLine = new System.Windows.Forms.Label();
+            this.checkBoxBarcode = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxManual
@@ -107,7 +109,7 @@
             this.buttonSettingsOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.buttonSettingsOK.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSettingsOK.ForeColor = System.Drawing.Color.Chartreuse;
-            this.buttonSettingsOK.Location = new System.Drawing.Point(14, 486);
+            this.buttonSettingsOK.Location = new System.Drawing.Point(196, 488);
             this.buttonSettingsOK.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSettingsOK.Name = "buttonSettingsOK";
             this.buttonSettingsOK.Size = new System.Drawing.Size(169, 53);
@@ -121,7 +123,7 @@
             this.buttonSettingsCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.buttonSettingsCancel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSettingsCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonSettingsCancel.Location = new System.Drawing.Point(191, 486);
+            this.buttonSettingsCancel.Location = new System.Drawing.Point(373, 488);
             this.buttonSettingsCancel.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSettingsCancel.Name = "buttonSettingsCancel";
             this.buttonSettingsCancel.Size = new System.Drawing.Size(169, 53);
@@ -149,7 +151,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(151, 14);
+            this.label2.Location = new System.Drawing.Point(350, 13);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 25);
@@ -175,7 +177,7 @@
             this.panel1.BackColor = System.Drawing.Color.Plum;
             this.panel1.Location = new System.Drawing.Point(12, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 2);
+            this.panel1.Size = new System.Drawing.Size(700, 2);
             this.panel1.TabIndex = 30;
             // 
             // generateReport
@@ -292,7 +294,7 @@
             this.panel2.BackColor = System.Drawing.Color.Plum;
             this.panel2.Location = new System.Drawing.Point(12, 393);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(343, 2);
+            this.panel2.Size = new System.Drawing.Size(700, 2);
             this.panel2.TabIndex = 31;
             // 
             // label11
@@ -343,12 +345,39 @@
             this.labelPaclLine.TabIndex = 126;
             this.labelPaclLine.Text = "PackLine";
             // 
+            // checkBoxBarcode
+            // 
+            this.checkBoxBarcode.AutoSize = true;
+            this.checkBoxBarcode.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxBarcode.ForeColor = System.Drawing.Color.White;
+            this.checkBoxBarcode.Location = new System.Drawing.Point(620, 82);
+            this.checkBoxBarcode.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBoxBarcode.Name = "checkBoxBarcode";
+            this.checkBoxBarcode.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxBarcode.TabIndex = 129;
+            this.checkBoxBarcode.UseVisualStyleBackColor = true;
+            this.checkBoxBarcode.CheckedChanged += new System.EventHandler(this.checkBoxBarcode_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(415, 74);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(193, 24);
+            this.label6.TabIndex = 130;
+            this.label6.Text = "Barcode Checker";
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(375, 552);
+            this.ClientSize = new System.Drawing.Size(745, 552);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.checkBoxBarcode);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.comboBoxCHKW);
             this.Controls.Add(this.comboBoxPLNumber);
@@ -409,5 +438,7 @@
         private System.Windows.Forms.ComboBox comboBoxCHKW;
         private System.Windows.Forms.ComboBox comboBoxPLNumber;
         private System.Windows.Forms.Label labelPaclLine;
+        private System.Windows.Forms.CheckBox checkBoxBarcode;
+        private System.Windows.Forms.Label label6;
     }
 }

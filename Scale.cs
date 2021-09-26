@@ -240,7 +240,8 @@ namespace PortMainScaleTest
             shiftRun.sendReportAtHour = Properties.Settings.Default.sendReportAtHour; // Use preconfigured settings
             shiftRun.sendReportAtMinute = Properties.Settings.Default.sendReportAtMinute; // Use preconfigured settings
 
-            //Bar Code Checking
+            //Bar Code Checker
+            shiftRun.isBarcodeChecker = Properties.Settings.Default.isBarcodeChecker; // by default it's off or Whatever settings saved
             shiftRun.barCode = "";              
             shiftRun.isBarCodeMatch = true;
             shiftRun.barCodeCheckAtCount = 10;       //Hard codded for now. Later will be in settings section
@@ -1379,8 +1380,9 @@ namespace PortMainScaleTest
             // Check Error Number and send Email to Tim about it
             checkErrorsAndSendEmailToTim(shiftRun);
 
-            //Open BarCode checker Window
-            if (shiftRun.barCodeCheckAtCount == shiftRun.PlCount) {
+            //Open BarCode checker Window if condition is true
+
+            if (shiftRun.barCodeCheckAtCount == shiftRun.PlCount && shiftRun.isBarcodeChecker == true) {
 
                 ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
                 //barCodeWindowShow(); // Execute pop up window function

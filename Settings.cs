@@ -50,6 +50,9 @@ namespace PortMainScaleTest
             comboBoxPLNumber.SelectedItem = Properties.Settings.Default.packLineNumber;
             comboBoxCHKW.SelectedItem = Properties.Settings.Default.locationCHKW;
 
+            //Barcode checker
+            checkBoxBarcode.Checked = Properties.Settings.Default.isBarcodeChecker;
+
 
             for (int i = 0; i < 23; i++)
             comboBoxHour.Items.Add(i);
@@ -139,6 +142,7 @@ namespace PortMainScaleTest
             Properties.Settings.Default.PLCOMsettings = comboBoxPL.Text;
             Properties.Settings.Default.ManualCOMsettings = comboBoxManual.Text;
             Properties.Settings.Default.checkBoxSaveToNewFormat = checkBoxSaveToNewFormat.Checked;
+            Properties.Settings.Default.isBarcodeChecker = checkBoxBarcode.Checked;
             Properties.Settings.Default.Save();
             
             PLportNumber = comboBoxPL.Text;
@@ -202,6 +206,18 @@ namespace PortMainScaleTest
         {
             shiftRun.isGenerateAndSend = true;
 
+        }
+
+        //BarCode checker OFF/ON
+        private void checkBoxBarcode_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxBarcode.Checked) {
+                shiftRun.isBarcodeChecker = true; //BarCode checker is ON
+            }
+            if (!checkBoxBarcode.Checked)
+            {
+                shiftRun.isBarcodeChecker = false; //BarCode checker is OFF
+            }
         }
     }
 

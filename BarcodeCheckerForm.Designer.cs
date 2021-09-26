@@ -64,6 +64,7 @@ namespace PortMainScaleTest
             this.Name = "BarcodeCheckerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barcode checker";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.BarCodeChecker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
