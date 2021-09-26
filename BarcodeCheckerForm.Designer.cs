@@ -29,6 +29,7 @@ namespace PortMainScaleTest
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BarcodeCheckerForm));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxBarCodeChecker = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -36,17 +37,19 @@ namespace PortMainScaleTest
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(191, 37);
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(37, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.Size = new System.Drawing.Size(327, 35);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Scan Bar Code";
+            this.label1.Text = "Please scan the barcode";
             // 
             // textBoxBarCodeChecker
             // 
-            this.textBoxBarCodeChecker.Location = new System.Drawing.Point(133, 78);
+            this.textBoxBarCodeChecker.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBarCodeChecker.Location = new System.Drawing.Point(116, 97);
             this.textBoxBarCodeChecker.Name = "textBoxBarCodeChecker";
-            this.textBoxBarCodeChecker.Size = new System.Drawing.Size(199, 20);
+            this.textBoxBarCodeChecker.Size = new System.Drawing.Size(173, 38);
             this.textBoxBarCodeChecker.TabIndex = 1;
             this.textBoxBarCodeChecker.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxBarCodeChecker_KeyUp);
             // 
@@ -54,11 +57,13 @@ namespace PortMainScaleTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 205);
+            this.ClientSize = new System.Drawing.Size(398, 177);
             this.Controls.Add(this.textBoxBarCodeChecker);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BarcodeCheckerForm";
-            this.Text = "BarcodeCheckerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Barcode checker";
             this.Load += new System.EventHandler(this.BarCodeChecker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

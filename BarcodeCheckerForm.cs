@@ -36,10 +36,12 @@ namespace PortMainScaleTest
                 if (shiftRun.BarCode.Equals(textBoxBarCodeChecker.Text))
                 {
                     DialogResult = DialogResult.OK;
+                    this.shiftRun.isBarCodeMatch = true; // Barcode match nothing to alert
                 }
                 else
                 {
-                    DialogResult = DialogResult.Cancel;
+                    DialogResult = DialogResult.OK;
+                    this.shiftRun.isBarCodeMatch = false; // Barcode NOT matching  !!!NEEDS TO BE ALERTED!!!
                 }
             }
 

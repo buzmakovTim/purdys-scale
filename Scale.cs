@@ -289,7 +289,7 @@ namespace PortMainScaleTest
 
                 // Warning Message
                 shiftRun.Warning = false;
-                worningMessage(shiftRun.Warning);
+                warningMessage(shiftRun.Warning);
             }
             catch (Exception ex)
             {
@@ -299,7 +299,7 @@ namespace PortMainScaleTest
 
                 // Warning Message
                 shiftRun.Warning = true;
-                worningMessage(shiftRun.Warning);
+                warningMessage(shiftRun.Warning);
                 
                 Logger.ERROR("Catch Block COM port for PL scale can't be open (FORM LOAD)");   // COM ports can't be open
             }
@@ -316,7 +316,7 @@ namespace PortMainScaleTest
 
                 // Warning Message
                 shiftRun.Warning = false;
-                worningMessage(shiftRun.Warning);
+                warningMessage(shiftRun.Warning);
             }
             catch (Exception ex)
             {
@@ -325,7 +325,7 @@ namespace PortMainScaleTest
 
                 // Warning Message
                 shiftRun.Warning = true;
-                worningMessage(shiftRun.Warning);
+                warningMessage(shiftRun.Warning);
 
                 Logger.ERROR("Catch Block COM port for Manual scale can't be open (FORM LOAD)");   // COM ports can't be open
             }
@@ -465,16 +465,16 @@ namespace PortMainScaleTest
 
                 // Warning Message
                 shiftRun.Warning = false;
-                worningMessage(shiftRun.Warning);
+                warningMessage(shiftRun.Warning);
             }
             catch (Exception ex) //Application Starts with warnings
             {
                 //MessageBox.Show("Scale not connected\nPlease contact to IT", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // Warning Message
                 shiftRun.Warning = true;
-                worningMessage(shiftRun.Warning);
+                warningMessage(shiftRun.Warning);
 
-                Logger.WARN("Catch Block App starts with Worning Message (START Button)");
+                Logger.WARN("Catch Block App starts with Warning Message (START Button)");
             }
 
             //Update date
@@ -586,7 +586,7 @@ namespace PortMainScaleTest
                 //MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error); // Do not show this message App might be frozen
                 // Warning Message
                 shiftRun.Warning = true;
-                worningMessage(shiftRun.Warning);
+                warningMessage(shiftRun.Warning);
                 shiftRun.DataFromPLScale = "";
 
                 Logger.ERROR("Exeption thrown! (PLScale_DataReceived): " + ex);
@@ -623,7 +623,7 @@ namespace PortMainScaleTest
                 //MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error); // Do not show this message App might be frozen
                 // Warning Message
                 shiftRun.Warning = true;
-                worningMessage(shiftRun.Warning);
+                warningMessage(shiftRun.Warning);
                 shiftRun.DataFromManualScale = "";
 
                 Logger.ERROR("Exeption thrown! (ManualScale_DataReceived): " + ex);
@@ -1889,13 +1889,13 @@ namespace PortMainScaleTest
 
                     // Warning Message NOT SHOW
                     shiftRun.Warning = false;
-                    worningMessage(shiftRun.Warning);
+                    warningMessage(shiftRun.Warning);
                 }
                 catch (Exception ex)
                 {
                     // Warning Message SHOW
                     shiftRun.Warning = true;
-                    worningMessage(shiftRun.Warning);
+                    warningMessage(shiftRun.Warning);
                     MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ManualConnected(false);
                 }
@@ -2036,9 +2036,11 @@ namespace PortMainScaleTest
 
         // WARNING! message
         // Worning Message If Scale not connected
-        public void worningMessage(bool set)
+        public void warningMessage(bool set, string message = "WARNING!\nPlease Press IT Help\nScales NOT connected")
         {
             //labelWarning.Text = "WARNING!\nPlease Press IT Help\nScales NOT connected";
+            //labelWarning.Text = "WARNING!\nPlease Check Packaging.\nBarCode NOT Matching";
+            labelWarning.Text = message;
 
             if (set == true) // Warning shows 
             {
@@ -2235,8 +2237,18 @@ namespace PortMainScaleTest
                 barcodeCheckerForm.Dispose();
             }
 
-            
 
+            // If BarCode not matching Show Error message and Notifying Management by Email.
+            if (shiftRun.isBarCodeMatch == false)
+            {
+
+                warningMessage(true, "WARNING!\nPlease Check Packaging.\nBarCode NOT Matching");
+
+            }
+            else {
+
+                warningMessage(false);
+            }
 
         }
         //Bar Code checker Function to Prompt a bar code scanning window END

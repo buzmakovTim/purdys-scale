@@ -944,7 +944,7 @@
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(70, 17);
             this.labelVersion.TabIndex = 78;
-            this.labelVersion.Text = "Scale v5.9";
+            this.labelVersion.Text = "Scale v6.0";
             // 
             // panel3
             // 
@@ -998,6 +998,7 @@
             this.labelWarning.Size = new System.Drawing.Size(219, 66);
             this.labelWarning.TabIndex = 82;
             this.labelWarning.Text = "           WARNING!\r\n    Please Press IT Help\r\nScales NOT connected";
+            this.labelWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelWarning.Visible = false;
             // 
             // timerWarninMessage
