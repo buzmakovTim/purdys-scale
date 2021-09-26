@@ -241,7 +241,7 @@ namespace PortMainScaleTest
             shiftRun.sendReportAtMinute = Properties.Settings.Default.sendReportAtMinute; // Use preconfigured settings
 
             //Bar Code Checking
-            shiftRun.BarCode = "13103";              //Hard codded for now. Later will be in settings section
+            shiftRun.barCode = "";              
             shiftRun.isBarCodeMatch = true;
             shiftRun.barCodeCheckAtCount = 10;       //Hard codded for now. Later will be in settings section
 

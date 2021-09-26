@@ -33,7 +33,7 @@ namespace PortMainScaleTest
         {
             if (e.KeyValue == 13)
             {
-                if (shiftRun.BarCode.Equals(textBoxBarCodeChecker.Text))
+                if (shiftRun.barCode.Equals(textBoxBarCodeChecker.Text))
                 {
                     DialogResult = DialogResult.OK;
                     this.shiftRun.isBarCodeMatch = true; // Barcode match nothing to alert

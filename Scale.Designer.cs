@@ -997,7 +997,7 @@
             this.labelWarning.Name = "labelWarning";
             this.labelWarning.Size = new System.Drawing.Size(219, 66);
             this.labelWarning.TabIndex = 82;
-            this.labelWarning.Text = "           WARNING!\r\n    Please Press IT Help\r\nScales NOT connected";
+            this.labelWarning.Text = "WARNING!\r\nPlease Press IT Help\r\nScales NOT connected";
             this.labelWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelWarning.Visible = false;
             // 

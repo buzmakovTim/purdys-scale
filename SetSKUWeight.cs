@@ -32,6 +32,7 @@ namespace PortMainScaleTest
                 ShiftRun.TargetWeight = Convert.ToDouble(textBoxTarget.Text);
                 ShiftRun.HeavyWeight = Convert.ToDouble(textBoxHeavy.Text);
                 ShiftRun.productivityTarget = Convert.ToInt32(textBoxProdTarget.Text);
+                ShiftRun.barCode = textBoxBarcode.Text;
 
                 // Selecting Number of people working
                 // And validating that min N of people positive number and not less than 1
