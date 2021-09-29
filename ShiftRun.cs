@@ -89,6 +89,8 @@ namespace PortMainScaleTest
         public string barCode { get; set; } // Bar code
         public bool isBarCodeMatch { get; set; } // Is Bar code Match?
         public int barCodeCheckAtCount { get; set; } // Check when count
+        public string barCodeCountType { get; set; } // Type each or minute
+        public int nextCheckAt { get; set; } // When next box will be checking
                                                 
     
     }

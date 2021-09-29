@@ -51,7 +51,18 @@ namespace PortMainScaleTest
             comboBoxCHKW.SelectedItem = Properties.Settings.Default.locationCHKW;
 
             //Barcode checker
+            comboBoxBarcodeCount.Items.Add(10);
+            comboBoxBarcodeCount.Items.Add(30);
+            comboBoxBarcodeCount.Items.Add(60);
+            comboBoxBarcodeCount.Items.Add(100);
+            comboBoxBarcodeCount.Items.Add(120);
+
+            comboBoxBarcodeCountType.Items.Add("ea");
+            comboBoxBarcodeCountType.Items.Add("min");
+
             checkBoxBarcode.Checked = Properties.Settings.Default.isBarcodeChecker;
+            comboBoxBarcodeCount.Text = Properties.Settings.Default.barcodeCheckerCount.ToString();
+            comboBoxBarcodeCountType.SelectedItem = Properties.Settings.Default.barcodeCheckerCountType;
 
 
             for (int i = 0; i < 23; i++)
@@ -124,6 +135,8 @@ namespace PortMainScaleTest
                 Properties.Settings.Default.locationCHKW = comboBoxCHKW.Text;
                 shiftRun.Location = comboBoxCHKW.Text;
                 Properties.Settings.Default.packLineNumber = Convert.ToInt32(comboBoxPLNumber.Text);
+                Properties.Settings.Default.barcodeCheckerCount = Convert.ToInt32(comboBoxBarcodeCount.Text);
+
 
                 if (shiftRun.Location == "")
                 {
@@ -135,6 +148,7 @@ namespace PortMainScaleTest
             catch (Exception ex) // Location or PL not Set 
             {
                 MessageBox.Show("Location or PL number not selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult = DialogResult.OK; // Might be temporary
             }
             //Properties.Settings.Default.Save();
 
@@ -143,6 +157,8 @@ namespace PortMainScaleTest
             Properties.Settings.Default.ManualCOMsettings = comboBoxManual.Text;
             Properties.Settings.Default.checkBoxSaveToNewFormat = checkBoxSaveToNewFormat.Checked;
             Properties.Settings.Default.isBarcodeChecker = checkBoxBarcode.Checked;
+            
+            Properties.Settings.Default.barcodeCheckerCountType = comboBoxBarcodeCountType.Text;
             Properties.Settings.Default.Save();
             
             PLportNumber = comboBoxPL.Text;

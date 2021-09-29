@@ -29,5 +29,11 @@
     <Setting Name="isBarcodeChecker" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="barcodeCheckerCount" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="barcodeCheckerCountType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ea</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

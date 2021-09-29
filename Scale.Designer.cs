@@ -145,6 +145,7 @@
             this.expectedEfficiencyLabel = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.labelBarcode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPLScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManualScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).BeginInit();
@@ -243,13 +244,13 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridViewPLScale.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.dataGridViewPLScale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPLScale.Location = new System.Drawing.Point(26, 170);
+            this.dataGridViewPLScale.Location = new System.Drawing.Point(26, 202);
             this.dataGridViewPLScale.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewPLScale.Name = "dataGridViewPLScale";
             this.dataGridViewPLScale.RowHeadersVisible = false;
             this.dataGridViewPLScale.RowHeadersWidth = 62;
             this.dataGridViewPLScale.RowTemplate.Height = 28;
-            this.dataGridViewPLScale.Size = new System.Drawing.Size(347, 625);
+            this.dataGridViewPLScale.Size = new System.Drawing.Size(347, 593);
             this.dataGridViewPLScale.TabIndex = 15;
             // 
             // dataGridViewManualScale
@@ -258,13 +259,13 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridViewManualScale.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.dataGridViewManualScale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewManualScale.Location = new System.Drawing.Point(389, 170);
+            this.dataGridViewManualScale.Location = new System.Drawing.Point(389, 202);
             this.dataGridViewManualScale.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewManualScale.Name = "dataGridViewManualScale";
             this.dataGridViewManualScale.RowHeadersVisible = false;
             this.dataGridViewManualScale.RowHeadersWidth = 62;
             this.dataGridViewManualScale.RowTemplate.Height = 28;
-            this.dataGridViewManualScale.Size = new System.Drawing.Size(347, 625);
+            this.dataGridViewManualScale.Size = new System.Drawing.Size(347, 593);
             this.dataGridViewManualScale.TabIndex = 16;
             // 
             // label3
@@ -272,7 +273,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(390, 143);
+            this.label3.Location = new System.Drawing.Point(390, 176);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(169, 20);
@@ -771,7 +772,7 @@
             this.labelAverageCount.AutoSize = true;
             this.labelAverageCount.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAverageCount.ForeColor = System.Drawing.Color.White;
-            this.labelAverageCount.Location = new System.Drawing.Point(195, 146);
+            this.labelAverageCount.Location = new System.Drawing.Point(195, 179);
             this.labelAverageCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAverageCount.Name = "labelAverageCount";
             this.labelAverageCount.Size = new System.Drawing.Size(37, 16);
@@ -783,7 +784,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(158, 147);
+            this.label13.Location = new System.Drawing.Point(158, 180);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(33, 16);
@@ -795,7 +796,7 @@
             this.labelAverageAdjusted.AutoSize = true;
             this.labelAverageAdjusted.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAverageAdjusted.ForeColor = System.Drawing.Color.White;
-            this.labelAverageAdjusted.Location = new System.Drawing.Point(599, 146);
+            this.labelAverageAdjusted.Location = new System.Drawing.Point(599, 179);
             this.labelAverageAdjusted.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAverageAdjusted.Name = "labelAverageAdjusted";
             this.labelAverageAdjusted.Size = new System.Drawing.Size(37, 16);
@@ -807,7 +808,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(563, 147);
+            this.label16.Location = new System.Drawing.Point(563, 180);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(33, 16);
@@ -927,7 +928,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(25, 143);
+            this.label2.Location = new System.Drawing.Point(25, 176);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 20);
@@ -1261,7 +1262,7 @@
             this.labelOversizeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.labelOversizeBox.Font = new System.Drawing.Font("Century Gothic", 15F);
             this.labelOversizeBox.ForeColor = System.Drawing.Color.White;
-            this.labelOversizeBox.Location = new System.Drawing.Point(67, 241);
+            this.labelOversizeBox.Location = new System.Drawing.Point(67, 255);
             this.labelOversizeBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOversizeBox.Name = "labelOversizeBox";
             this.labelOversizeBox.Size = new System.Drawing.Size(255, 69);
@@ -1429,7 +1430,7 @@
             this.labelShift.AutoSize = true;
             this.labelShift.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.labelShift.ForeColor = System.Drawing.Color.White;
-            this.labelShift.Location = new System.Drawing.Point(25, 117);
+            this.labelShift.Location = new System.Drawing.Point(25, 120);
             this.labelShift.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelShift.Name = "labelShift";
             this.labelShift.Size = new System.Drawing.Size(31, 19);
@@ -1521,12 +1522,25 @@
             this.label25.TabIndex = 122;
             this.label25.Text = "Actual";
             // 
+            // labelBarcode
+            // 
+            this.labelBarcode.AutoSize = true;
+            this.labelBarcode.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.labelBarcode.ForeColor = System.Drawing.Color.White;
+            this.labelBarcode.Location = new System.Drawing.Point(25, 139);
+            this.labelBarcode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelBarcode.Name = "labelBarcode";
+            this.labelBarcode.Size = new System.Drawing.Size(81, 19);
+            this.labelBarcode.TabIndex = 123;
+            this.labelBarcode.Text = "Barcode - ";
+            // 
             // Scale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1500, 850);
+            this.Controls.Add(this.labelBarcode);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.expectedEfficiencyLabel);
@@ -1760,6 +1774,7 @@
         private System.Windows.Forms.Label expectedEfficiencyLabel;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label labelBarcode;
     }
 }
 

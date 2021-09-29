@@ -130,5 +130,29 @@ namespace PortMainScaleTest.Properties {
                 this["isBarcodeChecker"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int barcodeCheckerCount {
+            get {
+                return ((int)(this["barcodeCheckerCount"]));
+            }
+            set {
+                this["barcodeCheckerCount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ea")]
+        public string barcodeCheckerCountType {
+            get {
+                return ((string)(this["barcodeCheckerCountType"]));
+            }
+            set {
+                this["barcodeCheckerCountType"] = value;
+            }
+        }
     }
 }

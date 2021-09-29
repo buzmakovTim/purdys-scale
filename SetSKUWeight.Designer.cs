@@ -129,7 +129,7 @@
             this.textBoxLess.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxLess.Name = "textBoxLess";
             this.textBoxLess.Size = new System.Drawing.Size(105, 32);
-            this.textBoxLess.TabIndex = 4;
+            this.textBoxLess.TabIndex = 5;
             this.textBoxLess.Click += new System.EventHandler(this.textBoxLess_Click);
             // 
             // textBoxTarget
@@ -140,7 +140,7 @@
             this.textBoxTarget.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTarget.Name = "textBoxTarget";
             this.textBoxTarget.Size = new System.Drawing.Size(105, 32);
-            this.textBoxTarget.TabIndex = 5;
+            this.textBoxTarget.TabIndex = 6;
             this.textBoxTarget.Click += new System.EventHandler(this.textBoxTarget_Click);
             // 
             // textBoxHeavy
@@ -151,7 +151,7 @@
             this.textBoxHeavy.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxHeavy.Name = "textBoxHeavy";
             this.textBoxHeavy.Size = new System.Drawing.Size(105, 32);
-            this.textBoxHeavy.TabIndex = 6;
+            this.textBoxHeavy.TabIndex = 7;
             this.textBoxHeavy.Click += new System.EventHandler(this.textBoxHeavy_Click);
             // 
             // textBoxSKU
@@ -161,7 +161,7 @@
             this.textBoxSKU.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSKU.Name = "textBoxSKU";
             this.textBoxSKU.Size = new System.Drawing.Size(105, 32);
-            this.textBoxSKU.TabIndex = 2;
+            this.textBoxSKU.TabIndex = 1;
             this.textBoxSKU.Click += new System.EventHandler(this.textBoxSKU_Click);
             // 
             // buttonSaveSetSKU
@@ -435,7 +435,7 @@
             this.textBoxProdTarget.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxProdTarget.Name = "textBoxProdTarget";
             this.textBoxProdTarget.Size = new System.Drawing.Size(105, 32);
-            this.textBoxProdTarget.TabIndex = 3;
+            this.textBoxProdTarget.TabIndex = 2;
             this.textBoxProdTarget.Click += new System.EventHandler(this.textBoxProdTarget_Click);
             // 
             // comboBoxPplExpected
@@ -448,7 +448,7 @@
             this.comboBoxPplExpected.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPplExpected.Name = "comboBoxPplExpected";
             this.comboBoxPplExpected.Size = new System.Drawing.Size(74, 32);
-            this.comboBoxPplExpected.TabIndex = 69;
+            this.comboBoxPplExpected.TabIndex = 3;
             // 
             // label10
             // 
@@ -472,7 +472,7 @@
             this.comboBoxPplActual.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPplActual.Name = "comboBoxPplActual";
             this.comboBoxPplActual.Size = new System.Drawing.Size(74, 32);
-            this.comboBoxPplActual.TabIndex = 71;
+            this.comboBoxPplActual.TabIndex = 4;
             // 
             // label11
             // 
@@ -542,7 +542,7 @@
             this.textBoxBarcode.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBarcode.Name = "textBoxBarcode";
             this.textBoxBarcode.Size = new System.Drawing.Size(105, 32);
-            this.textBoxBarcode.TabIndex = 77;
+            this.textBoxBarcode.TabIndex = 8;
             // 
             // SetSKUWeight
             // 

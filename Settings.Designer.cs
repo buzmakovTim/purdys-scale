@@ -54,6 +54,10 @@
             this.labelPaclLine = new System.Windows.Forms.Label();
             this.checkBoxBarcode = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBoxBarcodeCount = new System.Windows.Forms.ComboBox();
+            this.comboBoxBarcodeCountType = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxManual
@@ -186,28 +190,28 @@
             this.generateReport.Location = new System.Drawing.Point(13, 345);
             this.generateReport.Margin = new System.Windows.Forms.Padding(2);
             this.generateReport.Name = "generateReport";
-            this.generateReport.Size = new System.Drawing.Size(98, 27);
+            this.generateReport.Size = new System.Drawing.Size(150, 27);
             this.generateReport.TabIndex = 116;
-            this.generateReport.Text = "Report";
+            this.generateReport.Text = "Generate Report";
             this.generateReport.UseVisualStyleBackColor = true;
             this.generateReport.Click += new System.EventHandler(this.generateReport_Click);
             // 
             // sendDailyReport
             // 
             this.sendDailyReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendDailyReport.Location = new System.Drawing.Point(115, 345);
+            this.sendDailyReport.Location = new System.Drawing.Point(169, 345);
             this.sendDailyReport.Margin = new System.Windows.Forms.Padding(2);
             this.sendDailyReport.Name = "sendDailyReport";
-            this.sendDailyReport.Size = new System.Drawing.Size(98, 27);
+            this.sendDailyReport.Size = new System.Drawing.Size(124, 27);
             this.sendDailyReport.TabIndex = 117;
-            this.sendDailyReport.Text = "Send";
+            this.sendDailyReport.Text = "Send Report";
             this.sendDailyReport.UseVisualStyleBackColor = true;
             this.sendDailyReport.Click += new System.EventHandler(this.sendDailyReport_Click);
             // 
             // sendDailyReportAndSend
             // 
             this.sendDailyReportAndSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendDailyReportAndSend.Location = new System.Drawing.Point(217, 345);
+            this.sendDailyReportAndSend.Location = new System.Drawing.Point(169, 314);
             this.sendDailyReportAndSend.Margin = new System.Windows.Forms.Padding(2);
             this.sendDailyReportAndSend.Name = "sendDailyReportAndSend";
             this.sendDailyReportAndSend.Size = new System.Drawing.Size(138, 27);
@@ -350,7 +354,7 @@
             this.checkBoxBarcode.AutoSize = true;
             this.checkBoxBarcode.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxBarcode.ForeColor = System.Drawing.Color.White;
-            this.checkBoxBarcode.Location = new System.Drawing.Point(620, 82);
+            this.checkBoxBarcode.Location = new System.Drawing.Point(639, 82);
             this.checkBoxBarcode.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxBarcode.Name = "checkBoxBarcode";
             this.checkBoxBarcode.Size = new System.Drawing.Size(15, 14);
@@ -363,12 +367,59 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(415, 74);
+            this.label6.Location = new System.Drawing.Point(434, 74);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(193, 24);
             this.label6.TabIndex = 130;
             this.label6.Text = "Barcode Checker";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(392, 120);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(143, 24);
+            this.label7.TabIndex = 131;
+            this.label7.Text = "Check every";
+            // 
+            // comboBoxBarcodeCount
+            // 
+            this.comboBoxBarcodeCount.BackColor = System.Drawing.Color.Purple;
+            this.comboBoxBarcodeCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBarcodeCount.ForeColor = System.Drawing.Color.White;
+            this.comboBoxBarcodeCount.FormattingEnabled = true;
+            this.comboBoxBarcodeCount.Location = new System.Drawing.Point(539, 118);
+            this.comboBoxBarcodeCount.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxBarcodeCount.Name = "comboBoxBarcodeCount";
+            this.comboBoxBarcodeCount.Size = new System.Drawing.Size(85, 32);
+            this.comboBoxBarcodeCount.TabIndex = 132;
+            // 
+            // comboBoxBarcodeCountType
+            // 
+            this.comboBoxBarcodeCountType.BackColor = System.Drawing.Color.Purple;
+            this.comboBoxBarcodeCountType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBarcodeCountType.ForeColor = System.Drawing.Color.White;
+            this.comboBoxBarcodeCountType.FormattingEnabled = true;
+            this.comboBoxBarcodeCountType.Location = new System.Drawing.Point(628, 118);
+            this.comboBoxBarcodeCountType.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxBarcodeCountType.Name = "comboBoxBarcodeCountType";
+            this.comboBoxBarcodeCountType.Size = new System.Drawing.Size(70, 32);
+            this.comboBoxBarcodeCountType.TabIndex = 134;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(392, 165);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 24);
+            this.label8.TabIndex = 133;
             // 
             // Settings
             // 
@@ -376,6 +427,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(745, 552);
+            this.Controls.Add(this.comboBoxBarcodeCountType);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.comboBoxBarcodeCount);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.checkBoxBarcode);
             this.Controls.Add(this.label11);
@@ -440,5 +495,9 @@
         private System.Windows.Forms.Label labelPaclLine;
         private System.Windows.Forms.CheckBox checkBoxBarcode;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBoxBarcodeCount;
+        private System.Windows.Forms.ComboBox comboBoxBarcodeCountType;
+        private System.Windows.Forms.Label label8;
     }
 }

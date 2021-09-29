@@ -241,11 +241,14 @@ namespace PortMainScaleTest
             shiftRun.sendReportAtMinute = Properties.Settings.Default.sendReportAtMinute; // Use preconfigured settings
 
             //Bar Code Checker
+            labelBarcode.Text = "";
             shiftRun.isBarcodeChecker = Properties.Settings.Default.isBarcodeChecker; // by default it's off or Whatever settings saved
             shiftRun.barCode = "";              
             shiftRun.isBarCodeMatch = true;
-            shiftRun.barCodeCheckAtCount = 10;       //Hard codded for now. Later will be in settings section
-
+            shiftRun.barCodeCheckAtCount = Properties.Settings.Default.barcodeCheckerCount;
+            shiftRun.barCodeCountType = Properties.Settings.Default.barcodeCheckerCountType; // Ea. or Min
+            shiftRun.nextCheckAt = shiftRun.barCodeCheckAtCount; // Originally checking at Default value
+            //shiftRun.nextCheckAt = 10; // Originally checking at Default value
 
         }
         // Reset All data End
@@ -481,6 +484,8 @@ namespace PortMainScaleTest
             //Update date
             labelDate.Text = DateTime.Now.ToString("MMM dd yyyy"); // Date on the right top corner
 
+
+
             // Set SKU target Weight
             shiftRun.Sku = labelSKUData.Text;
 
@@ -503,11 +508,12 @@ namespace PortMainScaleTest
                 }
 
                 timerRunning.startTimer();
-                shiftRun.isBreak = true; // Break set so not counting righ away
-                timerRunning.setIsBreak(true); // Break set so not counting righ away
+                shiftRun.isBreak = true; // Break set so not counting right away
+                timerRunning.setIsBreak(true); // Break set so not counting right away
                 buttonStart.Enabled = false;
                 labelShift.Visible = true;
                 labelShift.Text = shiftRun.Shift;
+                labelBarcode.Text = "Barcode - " + shiftRun.barCode;
 
                 dataSaved = false; // Prep for saving
                 //labelCHorKW.Text = shiftRun.Location; // Location when app starts
@@ -522,7 +528,7 @@ namespace PortMainScaleTest
                 labelStaffRequired.Text = shiftRun.StaffNumberRequired.ToString();
                 labelStaffActual.Text = shiftRun.StaffNumberActual.ToString();
 
-                ThreadPool.QueueUserWorkItem(state => SaveData.checkIfFileDaylyReportExist(shiftRun)); // Check if file for Dayly Report created. if not. Create
+                ThreadPool.QueueUserWorkItem(state => SaveData.checkIfFileDaylyReportExist(shiftRun)); // Check if file for Daly Report created. if not. Create
 
                 // Check for oversize box. True if match SKU for oversize
 
@@ -543,6 +549,7 @@ namespace PortMainScaleTest
                 Logger.INFO("");
                 Logger.INFO("");
                 Logger.INFO("SKU: " + shiftRun.Sku);
+                Logger.INFO("Barcode: " + shiftRun.barCode);
                 Logger.INFO("SHIFT: " + shiftRun.Shift);
                 Logger.INFO("Location: "+shiftRun.Location + " PL - " + shiftRun.PackLineNumber);
                 Logger.INFO("Less: " + shiftRun.LessWeight);
@@ -1380,13 +1387,34 @@ namespace PortMainScaleTest
             // Check Error Number and send Email to Tim about it
             checkErrorsAndSendEmailToTim(shiftRun);
 
+            //
+            // BARCODE CHECKER START
+            //
             //Open BarCode checker Window if condition is true
 
-            if (shiftRun.barCodeCheckAtCount == shiftRun.PlCount && shiftRun.isBarcodeChecker == true) {
+            if (shiftRun.PlCount >= shiftRun.ManualCount) // For mostly from Main scale
+            {
 
-                ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
-                //barCodeWindowShow(); // Execute pop up window function
+                if (shiftRun.nextCheckAt == shiftRun.PlCount && shiftRun.isBarcodeChecker == true)
+                {
+                    ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
+                    //barCodeWindowShow(); // Execute pop up window function
+                }
+
             }
+            else { // For mostly from Manual scale
+
+                if (shiftRun.ManualCount == shiftRun.PlCount && shiftRun.isBarcodeChecker == true)
+                {
+                    ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
+                    //barCodeWindowShow(); // Execute pop up window function
+                }
+            }
+            
+
+            //
+            // BARCODE CHECKER END
+            //
         }
 
 
@@ -1407,6 +1435,7 @@ namespace PortMainScaleTest
                 Logger.INFO("");
                 Logger.INFO("");
                 Logger.INFO("SKU: " + shiftRun.Sku);
+                Logger.INFO("Barcode: " + shiftRun.barCode);
                 Logger.INFO("Shift: " + shiftRun.Shift);
                 Logger.INFO("Location: " + shiftRun.Location + " PL - " + shiftRun.PackLineNumber);
 
@@ -1741,6 +1770,7 @@ namespace PortMainScaleTest
                     Logger.INFO("");
                     Logger.INFO("");
                     Logger.INFO("SKU: " + shiftRun.Sku);
+                    Logger.INFO("Barcode: " + shiftRun.barCode);
                     Logger.INFO("Shift: " + shiftRun.Shift);
                     Logger.INFO("Location: " + shiftRun.Location + " PL - " + shiftRun.PackLineNumber);
 
@@ -1800,7 +1830,7 @@ namespace PortMainScaleTest
             }
             catch (Exception ex)
             {
-                Logger.ERROR("Exeption thrown while IT suport button been pressed "+ ex);
+                Logger.ERROR("Exception thrown while IT support button been pressed "+ ex);
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 buttonIThelp.Enabled = true;
                 buttonIThelp.Text = "IT Help";
@@ -2233,9 +2263,16 @@ namespace PortMainScaleTest
 
             if(barcodeCheckerForm.ShowDialog() == DialogResult.OK)
             {
-                shiftRun.barCodeCheckAtCount = (shiftRun.barCodeCheckAtCount + 10);
-                // Here we will do something in case BarCode match with what is set at the beginning
                 
+                if (shiftRun.PlCount >= shiftRun.ManualCount)
+                {
+                    shiftRun.nextCheckAt = shiftRun.PlCount + shiftRun.barCodeCheckAtCount;
+                }
+                else
+                {
+                    shiftRun.nextCheckAt = shiftRun.ManualCount + shiftRun.barCodeCheckAtCount;
+                }
+
                 barcodeCheckerForm.Dispose();
             }
 
@@ -2245,6 +2282,14 @@ namespace PortMainScaleTest
             {
 
                 warningMessage(true, "WARNING!\nPlease Check Packaging.\nBarCode NOT Matching");
+
+                // If BarCode not match we will ask for checking again in after 5 boxes.
+                if (shiftRun.PlCount >= shiftRun.ManualCount) {
+                    shiftRun.nextCheckAt = shiftRun.PlCount + 5;
+                } else {
+                    shiftRun.ManualCount = shiftRun.ManualCount + 5;
+                }
+                
 
             }
             else {
