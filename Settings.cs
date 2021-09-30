@@ -137,6 +137,25 @@ namespace PortMainScaleTest
                 Properties.Settings.Default.packLineNumber = Convert.ToInt32(comboBoxPLNumber.Text);
                 Properties.Settings.Default.barcodeCheckerCount = Convert.ToInt32(comboBoxBarcodeCount.Text);
 
+                shiftRun.barCodeCheckAtCount = Convert.ToInt32(comboBoxBarcodeCount.Text);
+                shiftRun.isBarcodeChecker = checkBoxBarcode.Checked;
+
+
+
+                //
+                // Next box will be checked at
+                //
+                    if (shiftRun.PlCount >= shiftRun.ManualCount)
+                    {
+                        shiftRun.nextCheckAt = shiftRun.PlCount + shiftRun.barCodeCheckAtCount;
+                    }
+                    else
+                    {
+                        shiftRun.nextCheckAt = shiftRun.ManualCount + shiftRun.barCodeCheckAtCount;
+                    }
+                //
+                //
+                //
 
                 if (shiftRun.Location == "")
                 {
