@@ -154,5 +154,29 @@ namespace PortMainScaleTest.Properties {
                 this["barcodeCheckerCountType"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string barCodeEmailNotificationList {
+            get {
+                return ((string)(this["barCodeEmailNotificationList"]));
+            }
+            set {
+                this["barCodeEmailNotificationList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string barCodeEmailNotificationListCC {
+            get {
+                return ((string)(this["barCodeEmailNotificationListCC"]));
+            }
+            set {
+                this["barCodeEmailNotificationListCC"] = value;
+            }
+        }
     }
 }

@@ -86,6 +86,9 @@ namespace PortMainScaleTest
             comboBoxHour.Text = Properties.Settings.Default.sendReportAtHour.ToString();
             comboBoxMinute.Text = Properties.Settings.Default.sendReportAtMinute.ToString();
 
+            // Email To and CC
+            richTextBoxEmailTo.Text = Properties.Settings.Default.barCodeEmailNotificationList;
+            richTextBoxEmailToCC.Text = Properties.Settings.Default.barCodeEmailNotificationListCC;
 
             if (shiftRun.autoGenerateReport == true)
             {
@@ -140,7 +143,8 @@ namespace PortMainScaleTest
                 shiftRun.barCodeCheckAtCount = Convert.ToInt32(comboBoxBarcodeCount.Text);
                 shiftRun.isBarcodeChecker = checkBoxBarcode.Checked;
 
-
+                shiftRun.barCodeEmailNotificationList = richTextBoxEmailTo.Text;
+                shiftRun.barCodeEmailNotificationListCC = richTextBoxEmailToCC.Text;
 
                 //
                 // Next box will be checked at
@@ -178,6 +182,8 @@ namespace PortMainScaleTest
             Properties.Settings.Default.isBarcodeChecker = checkBoxBarcode.Checked;
             
             Properties.Settings.Default.barcodeCheckerCountType = comboBoxBarcodeCountType.Text;
+            Properties.Settings.Default.barCodeEmailNotificationList = richTextBoxEmailTo.Text;
+            Properties.Settings.Default.barCodeEmailNotificationListCC = richTextBoxEmailToCC.Text;
             Properties.Settings.Default.Save();
             
             PLportNumber = comboBoxPL.Text;

@@ -58,6 +58,10 @@
             this.comboBoxBarcodeCount = new System.Windows.Forms.ComboBox();
             this.comboBoxBarcodeCountType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.richTextBoxEmailTo = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxEmailToCC = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // comboBoxManual
@@ -421,12 +425,56 @@
             this.label8.Size = new System.Drawing.Size(0, 24);
             this.label8.TabIndex = 133;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(392, 174);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 24);
+            this.label9.TabIndex = 135;
+            this.label9.Text = "Email To:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(392, 266);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(137, 24);
+            this.label10.TabIndex = 136;
+            this.label10.Text = "Email To CC:";
+            // 
+            // richTextBoxEmailTo
+            // 
+            this.richTextBoxEmailTo.Location = new System.Drawing.Point(539, 174);
+            this.richTextBoxEmailTo.Name = "richTextBoxEmailTo";
+            this.richTextBoxEmailTo.Size = new System.Drawing.Size(173, 75);
+            this.richTextBoxEmailTo.TabIndex = 137;
+            this.richTextBoxEmailTo.Text = "";
+            // 
+            // richTextBoxEmailToCC
+            // 
+            this.richTextBoxEmailToCC.Location = new System.Drawing.Point(539, 266);
+            this.richTextBoxEmailToCC.Name = "richTextBoxEmailToCC";
+            this.richTextBoxEmailToCC.Size = new System.Drawing.Size(173, 75);
+            this.richTextBoxEmailToCC.TabIndex = 138;
+            this.richTextBoxEmailToCC.Text = "";
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(745, 552);
+            this.Controls.Add(this.richTextBoxEmailToCC);
+            this.Controls.Add(this.richTextBoxEmailTo);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.comboBoxBarcodeCountType);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBoxBarcodeCount);
@@ -499,5 +547,9 @@
         private System.Windows.Forms.ComboBox comboBoxBarcodeCount;
         private System.Windows.Forms.ComboBox comboBoxBarcodeCountType;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RichTextBox richTextBoxEmailTo;
+        private System.Windows.Forms.RichTextBox richTextBoxEmailToCC;
     }
 }

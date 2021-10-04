@@ -35,5 +35,11 @@
     <Setting Name="barcodeCheckerCountType" Type="System.String" Scope="User">
       <Value Profile="(Default)">ea</Value>
     </Setting>
+    <Setting Name="barCodeEmailNotificationList" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="barCodeEmailNotificationListCC" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

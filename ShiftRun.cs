@@ -91,7 +91,9 @@ namespace PortMainScaleTest
         public int barCodeCheckAtCount { get; set; } // Check when count
         public string barCodeCountType { get; set; } // Type each or minute
         public int nextCheckAt { get; set; } // When next box will be checking
-                                                
-    
+        public string barCodeEmailNotificationList { get; set; } //List of emails for notification
+        public string barCodeEmailNotificationListCC { get; set; } //CC List of emails for notification
+
+
     }
 }

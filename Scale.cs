@@ -248,6 +248,8 @@ namespace PortMainScaleTest
             shiftRun.barCodeCheckAtCount = Properties.Settings.Default.barcodeCheckerCount;
             shiftRun.barCodeCountType = Properties.Settings.Default.barcodeCheckerCountType; // Ea. or Min
             shiftRun.nextCheckAt = shiftRun.barCodeCheckAtCount; // Originally checking at Default value
+            shiftRun.barCodeEmailNotificationList = Properties.Settings.Default.barCodeEmailNotificationList; // Email List
+            shiftRun.barCodeEmailNotificationListCC = Properties.Settings.Default.barCodeEmailNotificationListCC; // CC Email List
             //shiftRun.nextCheckAt = 10; // Originally checking at Default value
 
         }
@@ -2280,6 +2282,12 @@ namespace PortMainScaleTest
             // If BarCode not matching Show Error message and Notifying Management by Email.
             if (shiftRun.isBarCodeMatch == false)
             {
+
+                //
+                // SEND EMAIL START
+                ThreadPool.QueueUserWorkItem(state => SendEmail.sendEmailBarCodeNotMatching(shiftRun));
+                // SEND EMAIL END
+                //
 
                 warningMessage(true, "WARNING!\nPlease Check Packaging.\nBarCode NOT Matching");
 
