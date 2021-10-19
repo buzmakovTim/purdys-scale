@@ -534,7 +534,7 @@ namespace PortMainScaleTest
 
                 // Check for oversize box. True if match SKU for oversize
 
-                if (shiftRun.Sku.Equals("26411") || shiftRun.Sku.Equals("12602") || shiftRun.Sku.Equals("12503X") || shiftRun.Sku.Equals("12503Y"))
+                if (shiftRun.Sku.Equals("26411_TEST") || shiftRun.Sku.Equals("12602_TEST") || shiftRun.Sku.Equals("12503X_TEST") || shiftRun.Sku.Equals("12503Y_TEST"))
                 {
                     shiftRun.boxOverSize = true; // This SKU is Oversize Box
                     labelOversizeBox.Visible = true; // Show the message about Oversize
