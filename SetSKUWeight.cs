@@ -15,8 +15,26 @@ namespace PortMainScaleTest
         public ShiftRun ShiftRun { get; set; }
         public SetSKUWeight()
         {
+            
+
             InitializeComponent();
+
+            if (Properties.Settings.Default.isBarcodeChecker)
+            {
+                textBoxBarcode.Visible = true;
+                labelSetBacCode.Visible = true;
+                labelBarcode6.Visible = true;
+            }
+            else
+            {
+                textBoxBarcode.Visible = false;
+                labelSetBacCode.Visible = false;
+                labelBarcode6.Visible = false;
+            }
+
         }
+
+        
 
         // Click START
         private void buttonSaveSetSKU_Click(object sender, EventArgs e)

@@ -65,8 +65,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.labelBarcode6 = new System.Windows.Forms.Label();
+            this.labelSetBacCode = new System.Windows.Forms.Label();
             this.textBoxBarcode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPM)).BeginInit();
@@ -510,29 +510,29 @@
             this.label13.TabIndex = 74;
             this.label13.Text = "Actual";
             // 
-            // label16
+            // labelBarcode6
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(447, 221);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(22, 24);
-            this.label16.TabIndex = 76;
-            this.label16.Text = "6";
+            this.labelBarcode6.AutoSize = true;
+            this.labelBarcode6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBarcode6.ForeColor = System.Drawing.Color.White;
+            this.labelBarcode6.Location = new System.Drawing.Point(447, 221);
+            this.labelBarcode6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelBarcode6.Name = "labelBarcode6";
+            this.labelBarcode6.Size = new System.Drawing.Size(22, 24);
+            this.labelBarcode6.TabIndex = 76;
+            this.labelBarcode6.Text = "6";
             // 
-            // label17
+            // labelSetBacCode
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(486, 221);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(147, 24);
-            this.label17.TabIndex = 75;
-            this.label17.Text = "SET BARCODE";
+            this.labelSetBacCode.AutoSize = true;
+            this.labelSetBacCode.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSetBacCode.ForeColor = System.Drawing.Color.White;
+            this.labelSetBacCode.Location = new System.Drawing.Point(486, 221);
+            this.labelSetBacCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSetBacCode.Name = "labelSetBacCode";
+            this.labelSetBacCode.Size = new System.Drawing.Size(147, 24);
+            this.labelSetBacCode.TabIndex = 75;
+            this.labelSetBacCode.Text = "SET BARCODE";
             // 
             // textBoxBarcode
             // 
@@ -551,8 +551,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(794, 400);
             this.Controls.Add(this.textBoxBarcode);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label17);
+            this.Controls.Add(this.labelBarcode6);
+            this.Controls.Add(this.labelSetBacCode);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -645,8 +645,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label labelBarcode6;
+        private System.Windows.Forms.Label labelSetBacCode;
         private System.Windows.Forms.TextBox textBoxBarcode;
     }
 }
