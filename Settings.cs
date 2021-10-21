@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
 using System.Runtime.Serialization;
+using System.Runtime.InteropServices;
 
 namespace PortMainScaleTest
 {
@@ -17,6 +18,24 @@ namespace PortMainScaleTest
 
     public partial class Settings : Form
     {
+
+        //
+        // Rounded corners for Form START
+        //
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
+        //
+        // Rounded corners for Form END
+        //
+
         public string PLportNumber  { get; set; }
         public string ManualportNumber { get; set; }
 
@@ -31,6 +50,8 @@ namespace PortMainScaleTest
             InitializeComponent();
             ManualScaleSerialPort = serial;
             PLScaleSerialPort = serial2;
+
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20)); // Rounded corners for Form
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -49,6 +70,20 @@ namespace PortMainScaleTest
             //Load form with saved settings for PackLine N
             comboBoxPLNumber.SelectedItem = Properties.Settings.Default.packLineNumber;
             comboBoxCHKW.SelectedItem = Properties.Settings.Default.locationCHKW;
+
+            //Barcode checker
+            comboBoxBarcodeCount.Items.Add(10);
+            comboBoxBarcodeCount.Items.Add(30);
+            comboBoxBarcodeCount.Items.Add(60);
+            comboBoxBarcodeCount.Items.Add(100);
+            comboBoxBarcodeCount.Items.Add(120);
+
+            comboBoxBarcodeCountType.Items.Add("ea");
+            comboBoxBarcodeCountType.Items.Add("min");
+
+            checkBoxBarcode.Checked = Properties.Settings.Default.isBarcodeChecker;
+            comboBoxBarcodeCount.Text = Properties.Settings.Default.barcodeCheckerCount.ToString();
+            comboBoxBarcodeCountType.SelectedItem = Properties.Settings.Default.barcodeCheckerCountType;
 
 
             for (int i = 0; i < 23; i++)
@@ -72,6 +107,9 @@ namespace PortMainScaleTest
             comboBoxHour.Text = Properties.Settings.Default.sendReportAtHour.ToString();
             comboBoxMinute.Text = Properties.Settings.Default.sendReportAtMinute.ToString();
 
+            // Email To and CC
+            richTextBoxEmailTo.Text = Properties.Settings.Default.barCodeEmailNotificationList;
+            richTextBoxEmailToCC.Text = Properties.Settings.Default.barCodeEmailNotificationListCC;
 
             if (shiftRun.autoGenerateReport == true)
             {
@@ -121,6 +159,28 @@ namespace PortMainScaleTest
                 Properties.Settings.Default.locationCHKW = comboBoxCHKW.Text;
                 shiftRun.Location = comboBoxCHKW.Text;
                 Properties.Settings.Default.packLineNumber = Convert.ToInt32(comboBoxPLNumber.Text);
+                Properties.Settings.Default.barcodeCheckerCount = Convert.ToInt32(comboBoxBarcodeCount.Text);
+
+                shiftRun.barCodeCheckAtCount = Convert.ToInt32(comboBoxBarcodeCount.Text);
+                shiftRun.isBarcodeChecker = checkBoxBarcode.Checked;
+
+                shiftRun.barCodeEmailNotificationList = richTextBoxEmailTo.Text;
+                shiftRun.barCodeEmailNotificationListCC = richTextBoxEmailToCC.Text;
+
+                //
+                // Next box will be checked at
+                //
+                    if (shiftRun.PlCount >= shiftRun.ManualCount)
+                    {
+                        shiftRun.nextCheckAt = shiftRun.PlCount + shiftRun.barCodeCheckAtCount;
+                    }
+                    else
+                    {
+                        shiftRun.nextCheckAt = shiftRun.ManualCount + shiftRun.barCodeCheckAtCount;
+                    }
+                //
+                //
+                //
 
                 if (shiftRun.Location == "")
                 {
@@ -132,6 +192,7 @@ namespace PortMainScaleTest
             catch (Exception ex) // Location or PL not Set 
             {
                 MessageBox.Show("Location or PL number not selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult = DialogResult.OK; // Might be temporary
             }
             //Properties.Settings.Default.Save();
 
@@ -139,6 +200,11 @@ namespace PortMainScaleTest
             Properties.Settings.Default.PLCOMsettings = comboBoxPL.Text;
             Properties.Settings.Default.ManualCOMsettings = comboBoxManual.Text;
             Properties.Settings.Default.checkBoxSaveToNewFormat = checkBoxSaveToNewFormat.Checked;
+            Properties.Settings.Default.isBarcodeChecker = checkBoxBarcode.Checked;
+            
+            Properties.Settings.Default.barcodeCheckerCountType = comboBoxBarcodeCountType.Text;
+            Properties.Settings.Default.barCodeEmailNotificationList = richTextBoxEmailTo.Text;
+            Properties.Settings.Default.barCodeEmailNotificationListCC = richTextBoxEmailToCC.Text;
             Properties.Settings.Default.Save();
             
             PLportNumber = comboBoxPL.Text;
@@ -202,6 +268,18 @@ namespace PortMainScaleTest
         {
             shiftRun.isGenerateAndSend = true;
 
+        }
+
+        //BarCode checker OFF/ON
+        private void checkBoxBarcode_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxBarcode.Checked) {
+                shiftRun.isBarcodeChecker = true; //BarCode checker is ON
+            }
+            if (!checkBoxBarcode.Checked)
+            {
+                shiftRun.isBarcodeChecker = false; //BarCode checker is OFF
+            }
         }
     }
 

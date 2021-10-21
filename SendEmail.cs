@@ -71,6 +71,35 @@ namespace PortMainScaleTest
             return true;
         }
 
+        // Send Email about BarCode NOT matching
+        public static bool sendEmailBarCodeNotMatching(ShiftRun shiftRun)
+        {
+            try
+            {
+                Outlook._Application _app = new Outlook.Application();
+                Outlook.MailItem mail = (Outlook.MailItem)_app.CreateItem(Outlook.OlItemType.olMailItem);
+                mail.To = shiftRun.barCodeEmailNotificationList;
+                mail.CC = shiftRun.barCodeEmailNotificationListCC;
+                mail.Subject = "Bar code at " + shiftRun.Location + " Pack line - " + shiftRun.PackLineNumber + " - ERROR!";
+
+                mail.Body = "Please check Packaging at " + shiftRun.Location + " Pack Line - " + shiftRun.PackLineNumber +
+                            "\n BabarCode not matching";
+
+
+                mail.Importance = Outlook.OlImportance.olImportanceHigh;
+                ((Outlook._MailItem)mail).Send();
+
+                Logger.INFO("Email to Tim_B has been sent (sendEmailToTim)");
+                //MessageBox.Show("IT support request has been sent\nWe will help you ASAP", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                Logger.ERROR("Exception thrown while sending Email to Tim_B (sendEmailToTim) " + ex);
+            }
+
+            return true;
+        }
+
         // Send email to QA if running average down below between Less and Target
         public static void sendEmailToQA(ShiftRun shiftRun)
         {
@@ -244,13 +273,14 @@ namespace PortMainScaleTest
                         mail.To = "productionsupervisors@purdys.com";
                         mail.CC = "william_h@purdys.com; tim_b@purdys.com";
                     }
-                    else // If testing send to myself anly
+                    else // If testing send to myself only
                     {
                         mail.To = "tim_b@purdys.com";
                     }
                     
                     mail.Subject = "PL Daily Report " + dateTime;
-                    mail.Body = "PL Daily Report is attached";
+                    mail.Body = "PL Daily Report is attached" +
+                        "\n\nAll reports are available here: \\\\hedgehog\\Syteline\\PacklineScaleData\\Daily_Reports";
 
                     mail.Attachments.Add(fileNameFullPath, Outlook.OlAttachmentType.olByValue); // Attach File and Send
 

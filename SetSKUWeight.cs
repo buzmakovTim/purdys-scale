@@ -7,16 +7,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace PortMainScaleTest
 {
     public partial class SetSKUWeight : Form
     {
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
+
         public ShiftRun ShiftRun { get; set; }
         public SetSKUWeight()
         {
+            
+
             InitializeComponent();
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+
+            if (Properties.Settings.Default.isBarcodeChecker)
+            {
+                textBoxBarcode.Visible = true;
+                labelSetBacCode.Visible = true;
+                labelBarcode6.Visible = true;
+            }
+            else
+            {
+                textBoxBarcode.Visible = false;
+                labelSetBacCode.Visible = false;
+                labelBarcode6.Visible = false;
+            }
+
         }
+
+        
 
         // Click START
         private void buttonSaveSetSKU_Click(object sender, EventArgs e)
@@ -32,6 +64,7 @@ namespace PortMainScaleTest
                 ShiftRun.TargetWeight = Convert.ToDouble(textBoxTarget.Text);
                 ShiftRun.HeavyWeight = Convert.ToDouble(textBoxHeavy.Text);
                 ShiftRun.productivityTarget = Convert.ToInt32(textBoxProdTarget.Text);
+                ShiftRun.barCode = textBoxBarcode.Text;
 
                 // Selecting Number of people working
                 // And validating that min N of people positive number and not less than 1

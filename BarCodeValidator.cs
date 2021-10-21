@@ -15,10 +15,10 @@ namespace PortMainScaleTest
 
             if (!barCode.Equals(""))
             {
-                shiftRun.BarCode = barCode;
+                shiftRun.barCode = barCode;
             }
             else {
-                shiftRun.BarCode = "";
+                shiftRun.barCode = "";
             }        
         }
     }

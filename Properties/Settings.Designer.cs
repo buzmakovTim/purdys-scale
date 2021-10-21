@@ -12,7 +12,7 @@ namespace PortMainScaleTest.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -116,6 +116,66 @@ namespace PortMainScaleTest.Properties {
             }
             set {
                 this["sendReportAtMinute"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isBarcodeChecker {
+            get {
+                return ((bool)(this["isBarcodeChecker"]));
+            }
+            set {
+                this["isBarcodeChecker"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int barcodeCheckerCount {
+            get {
+                return ((int)(this["barcodeCheckerCount"]));
+            }
+            set {
+                this["barcodeCheckerCount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ea")]
+        public string barcodeCheckerCountType {
+            get {
+                return ((string)(this["barcodeCheckerCountType"]));
+            }
+            set {
+                this["barcodeCheckerCountType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string barCodeEmailNotificationList {
+            get {
+                return ((string)(this["barCodeEmailNotificationList"]));
+            }
+            set {
+                this["barCodeEmailNotificationList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string barCodeEmailNotificationListCC {
+            get {
+                return ((string)(this["barCodeEmailNotificationListCC"]));
+            }
+            set {
+                this["barCodeEmailNotificationListCC"] = value;
             }
         }
     }
