@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
 using System.Runtime.Serialization;
+using System.Runtime.InteropServices;
 
 namespace PortMainScaleTest
 {
@@ -17,6 +18,24 @@ namespace PortMainScaleTest
 
     public partial class Settings : Form
     {
+
+        //
+        // Rounded corners for Form START
+        //
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
+        //
+        // Rounded corners for Form END
+        //
+
         public string PLportNumber  { get; set; }
         public string ManualportNumber { get; set; }
 
@@ -31,6 +50,8 @@ namespace PortMainScaleTest
             InitializeComponent();
             ManualScaleSerialPort = serial;
             PLScaleSerialPort = serial2;
+
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20)); // Rounded corners for Form
         }
 
         private void Settings_Load(object sender, EventArgs e)

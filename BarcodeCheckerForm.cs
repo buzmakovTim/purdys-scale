@@ -15,6 +15,9 @@ namespace PortMainScaleTest
     public partial class BarcodeCheckerForm : Form
     {
 
+        //
+        // Rounded corners for Form START
+        //
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -25,21 +28,25 @@ namespace PortMainScaleTest
             int nWidthEllipse, // width of ellipse
             int nHeightEllipse // height of ellipse
         );
+        //
+        // Rounded corners for Form END
+        //
 
-
-        Timer timer1;
+        Timer backgroundColorTimer;
         ShiftRun shiftRun;
         public BarcodeCheckerForm(ShiftRun shiftRun)
         {
             InitializeComponent();
             this.shiftRun = shiftRun;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            
+             
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20)); // Rounded corners for Form
 
             //Timer for flickering background color 
-            timer1 = new Timer();
-            timer1.Interval = 1000;
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Start();
+            backgroundColorTimer = new Timer();
+            backgroundColorTimer.Interval = 1000;
+            backgroundColorTimer.Tick += new EventHandler(timer1_Tick);
+            backgroundColorTimer.Start(); //Timer for background color lashing START
 
         }
        
@@ -49,6 +56,9 @@ namespace PortMainScaleTest
 
         }
 
+        //
+        // Flashing background color START
+        //
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (this.BackColor == Color.Firebrick)
@@ -61,9 +71,10 @@ namespace PortMainScaleTest
                 label1.ForeColor = Color.White;
             }
 
-
-            //labelText.Text = counter.ToString();
         }
+        //
+        // Flashing background color END
+        //
 
 
         private void textBoxBarCodeChecker_KeyUp(object sender, KeyEventArgs e)
@@ -74,13 +85,15 @@ namespace PortMainScaleTest
                 {
                     DialogResult = DialogResult.OK;
                     this.shiftRun.isBarCodeMatch = true; // Barcode match nothing to alert
-                    timer1.Stop();
+                    
+                    backgroundColorTimer.Stop(); //Timer for background color lashing STOP
                 }
                 else
                 {
                     DialogResult = DialogResult.OK;
                     this.shiftRun.isBarCodeMatch = false; // Barcode NOT matching  !!!NEEDS TO BE ALERTED!!!
-                    timer1.Stop();
+                    
+                    backgroundColorTimer.Stop(); //Timer for background color lashing STOP
                 }
             }
 

@@ -273,13 +273,14 @@ namespace PortMainScaleTest
                         mail.To = "productionsupervisors@purdys.com";
                         mail.CC = "william_h@purdys.com; tim_b@purdys.com";
                     }
-                    else // If testing send to myself anly
+                    else // If testing send to myself only
                     {
                         mail.To = "tim_b@purdys.com";
                     }
                     
                     mail.Subject = "PL Daily Report " + dateTime;
-                    mail.Body = "PL Daily Report is attached";
+                    mail.Body = "PL Daily Report is attached" +
+                        "\n\nAll reports are available here: \\\\hedgehog\\Syteline\\PacklineScaleData\\Daily_Reports";
 
                     mail.Attachments.Add(fileNameFullPath, Outlook.OlAttachmentType.olByValue); // Attach File and Send
 
