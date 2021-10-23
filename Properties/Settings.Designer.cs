@@ -145,13 +145,13 @@ namespace PortMainScaleTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ea")]
-        public string barcodeCheckerCountType {
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public int barCodeCheckEveryNumberMinutes {
             get {
-                return ((string)(this["barcodeCheckerCountType"]));
+                return ((int)(this["barCodeCheckEveryNumberMinutes"]));
             }
             set {
-                this["barcodeCheckerCountType"] = value;
+                this["barCodeCheckEveryNumberMinutes"] = value;
             }
         }
         
@@ -176,6 +176,30 @@ namespace PortMainScaleTest.Properties {
             }
             set {
                 this["barCodeEmailNotificationListCC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isCheckAtCount {
+            get {
+                return ((bool)(this["isCheckAtCount"]));
+            }
+            set {
+                this["isCheckAtCount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isCheckAtTime {
+            get {
+                return ((bool)(this["isCheckAtTime"]));
+            }
+            set {
+                this["isCheckAtTime"] = value;
             }
         }
     }

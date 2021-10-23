@@ -56,12 +56,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxBarcodeCount = new System.Windows.Forms.ComboBox();
-            this.comboBoxBarcodeCountType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.richTextBoxEmailTo = new System.Windows.Forms.RichTextBox();
             this.richTextBoxEmailToCC = new System.Windows.Forms.RichTextBox();
+            this.checkBoxIsEveryCount = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.checkBoxIsEveryMinute = new System.Windows.Forms.CheckBox();
+            this.comboBoxBarcodeMinutesCount = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxManual
@@ -358,7 +363,7 @@
             this.checkBoxBarcode.AutoSize = true;
             this.checkBoxBarcode.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxBarcode.ForeColor = System.Drawing.Color.White;
-            this.checkBoxBarcode.Location = new System.Drawing.Point(639, 82);
+            this.checkBoxBarcode.Location = new System.Drawing.Point(386, 83);
             this.checkBoxBarcode.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxBarcode.Name = "checkBoxBarcode";
             this.checkBoxBarcode.Size = new System.Drawing.Size(15, 14);
@@ -371,7 +376,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(434, 74);
+            this.label6.Location = new System.Drawing.Point(424, 74);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(193, 24);
@@ -383,7 +388,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(392, 120);
+            this.label7.Location = new System.Drawing.Point(405, 120);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(143, 24);
@@ -396,30 +401,18 @@
             this.comboBoxBarcodeCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxBarcodeCount.ForeColor = System.Drawing.Color.White;
             this.comboBoxBarcodeCount.FormattingEnabled = true;
-            this.comboBoxBarcodeCount.Location = new System.Drawing.Point(539, 118);
+            this.comboBoxBarcodeCount.Location = new System.Drawing.Point(552, 118);
             this.comboBoxBarcodeCount.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxBarcodeCount.Name = "comboBoxBarcodeCount";
             this.comboBoxBarcodeCount.Size = new System.Drawing.Size(85, 32);
             this.comboBoxBarcodeCount.TabIndex = 132;
-            // 
-            // comboBoxBarcodeCountType
-            // 
-            this.comboBoxBarcodeCountType.BackColor = System.Drawing.Color.Purple;
-            this.comboBoxBarcodeCountType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxBarcodeCountType.ForeColor = System.Drawing.Color.White;
-            this.comboBoxBarcodeCountType.FormattingEnabled = true;
-            this.comboBoxBarcodeCountType.Location = new System.Drawing.Point(628, 118);
-            this.comboBoxBarcodeCountType.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxBarcodeCountType.Name = "comboBoxBarcodeCountType";
-            this.comboBoxBarcodeCountType.Size = new System.Drawing.Size(70, 32);
-            this.comboBoxBarcodeCountType.TabIndex = 134;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(392, 165);
+            this.label8.Location = new System.Drawing.Point(405, 165);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(0, 24);
@@ -430,7 +423,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(392, 174);
+            this.label9.Location = new System.Drawing.Point(382, 214);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 24);
@@ -442,7 +435,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(392, 266);
+            this.label10.Location = new System.Drawing.Point(382, 306);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(137, 24);
@@ -451,31 +444,110 @@
             // 
             // richTextBoxEmailTo
             // 
-            this.richTextBoxEmailTo.Location = new System.Drawing.Point(539, 174);
+            this.richTextBoxEmailTo.Location = new System.Drawing.Point(529, 214);
             this.richTextBoxEmailTo.Name = "richTextBoxEmailTo";
-            this.richTextBoxEmailTo.Size = new System.Drawing.Size(173, 75);
+            this.richTextBoxEmailTo.Size = new System.Drawing.Size(183, 75);
             this.richTextBoxEmailTo.TabIndex = 137;
             this.richTextBoxEmailTo.Text = "";
             // 
             // richTextBoxEmailToCC
             // 
-            this.richTextBoxEmailToCC.Location = new System.Drawing.Point(539, 266);
+            this.richTextBoxEmailToCC.Location = new System.Drawing.Point(529, 306);
             this.richTextBoxEmailToCC.Name = "richTextBoxEmailToCC";
-            this.richTextBoxEmailToCC.Size = new System.Drawing.Size(173, 75);
+            this.richTextBoxEmailToCC.Size = new System.Drawing.Size(183, 75);
             this.richTextBoxEmailToCC.TabIndex = 138;
             this.richTextBoxEmailToCC.Text = "";
+            // 
+            // checkBoxIsEveryCount
+            // 
+            this.checkBoxIsEveryCount.AutoSize = true;
+            this.checkBoxIsEveryCount.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxIsEveryCount.ForeColor = System.Drawing.Color.White;
+            this.checkBoxIsEveryCount.Location = new System.Drawing.Point(386, 126);
+            this.checkBoxIsEveryCount.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBoxIsEveryCount.Name = "checkBoxIsEveryCount";
+            this.checkBoxIsEveryCount.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxIsEveryCount.TabIndex = 139;
+            this.checkBoxIsEveryCount.UseVisualStyleBackColor = true;
+            this.checkBoxIsEveryCount.CheckedChanged += new System.EventHandler(this.checkBoxIsEveryCount_CheckedChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(641, 123);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 24);
+            this.label12.TabIndex = 140;
+            this.label12.Text = "box";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(641, 162);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 24);
+            this.label13.TabIndex = 144;
+            this.label13.Text = "minute";
+            // 
+            // checkBoxIsEveryMinute
+            // 
+            this.checkBoxIsEveryMinute.AutoSize = true;
+            this.checkBoxIsEveryMinute.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxIsEveryMinute.ForeColor = System.Drawing.Color.White;
+            this.checkBoxIsEveryMinute.Location = new System.Drawing.Point(386, 165);
+            this.checkBoxIsEveryMinute.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBoxIsEveryMinute.Name = "checkBoxIsEveryMinute";
+            this.checkBoxIsEveryMinute.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxIsEveryMinute.TabIndex = 143;
+            this.checkBoxIsEveryMinute.UseVisualStyleBackColor = true;
+            this.checkBoxIsEveryMinute.CheckedChanged += new System.EventHandler(this.checkBoxIsEveryMinute_CheckedChanged);
+            // 
+            // comboBoxBarcodeMinutesCount
+            // 
+            this.comboBoxBarcodeMinutesCount.BackColor = System.Drawing.Color.Purple;
+            this.comboBoxBarcodeMinutesCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBarcodeMinutesCount.ForeColor = System.Drawing.Color.White;
+            this.comboBoxBarcodeMinutesCount.FormattingEnabled = true;
+            this.comboBoxBarcodeMinutesCount.Location = new System.Drawing.Point(552, 157);
+            this.comboBoxBarcodeMinutesCount.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxBarcodeMinutesCount.Name = "comboBoxBarcodeMinutesCount";
+            this.comboBoxBarcodeMinutesCount.Size = new System.Drawing.Size(85, 32);
+            this.comboBoxBarcodeMinutesCount.TabIndex = 142;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(405, 159);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(143, 24);
+            this.label14.TabIndex = 141;
+            this.label14.Text = "Check every";
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(195)))));
             this.ClientSize = new System.Drawing.Size(745, 552);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.checkBoxIsEveryMinute);
+            this.Controls.Add(this.comboBoxBarcodeMinutesCount);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.checkBoxIsEveryCount);
             this.Controls.Add(this.richTextBoxEmailToCC);
             this.Controls.Add(this.richTextBoxEmailTo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBoxBarcodeCountType);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBoxBarcodeCount);
             this.Controls.Add(this.label7);
@@ -545,11 +617,16 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxBarcodeCount;
-        private System.Windows.Forms.ComboBox comboBoxBarcodeCountType;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox richTextBoxEmailTo;
         private System.Windows.Forms.RichTextBox richTextBoxEmailToCC;
+        private System.Windows.Forms.CheckBox checkBoxIsEveryCount;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox checkBoxIsEveryMinute;
+        private System.Windows.Forms.ComboBox comboBoxBarcodeMinutesCount;
+        private System.Windows.Forms.Label label14;
     }
 }

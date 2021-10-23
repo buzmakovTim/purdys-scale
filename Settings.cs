@@ -71,19 +71,27 @@ namespace PortMainScaleTest
             comboBoxPLNumber.SelectedItem = Properties.Settings.Default.packLineNumber;
             comboBoxCHKW.SelectedItem = Properties.Settings.Default.locationCHKW;
 
-            //Barcode checker
+            //Barcode checker Count and Minute
             comboBoxBarcodeCount.Items.Add(10);
             comboBoxBarcodeCount.Items.Add(30);
             comboBoxBarcodeCount.Items.Add(60);
             comboBoxBarcodeCount.Items.Add(100);
             comboBoxBarcodeCount.Items.Add(120);
 
-            comboBoxBarcodeCountType.Items.Add("ea");
-            comboBoxBarcodeCountType.Items.Add("min");
+            comboBoxBarcodeMinutesCount.Items.Add(15);
+            comboBoxBarcodeMinutesCount.Items.Add(30);
+            comboBoxBarcodeMinutesCount.Items.Add(45);
+            comboBoxBarcodeMinutesCount.Items.Add(60);
+            comboBoxBarcodeMinutesCount.Items.Add(120);
+
 
             checkBoxBarcode.Checked = Properties.Settings.Default.isBarcodeChecker;
+            checkBoxIsEveryCount.Checked = Properties.Settings.Default.isCheckAtCount;
+            checkBoxIsEveryMinute.Checked = Properties.Settings.Default.isCheckAtTime;
+
             comboBoxBarcodeCount.Text = Properties.Settings.Default.barcodeCheckerCount.ToString();
-            comboBoxBarcodeCountType.SelectedItem = Properties.Settings.Default.barcodeCheckerCountType;
+            comboBoxBarcodeMinutesCount.Text = Properties.Settings.Default.barCodeCheckEveryNumberMinutes.ToString();
+
 
 
             for (int i = 0; i < 23; i++)
@@ -160,8 +168,10 @@ namespace PortMainScaleTest
                 shiftRun.Location = comboBoxCHKW.Text;
                 Properties.Settings.Default.packLineNumber = Convert.ToInt32(comboBoxPLNumber.Text);
                 Properties.Settings.Default.barcodeCheckerCount = Convert.ToInt32(comboBoxBarcodeCount.Text);
+                Properties.Settings.Default.barCodeCheckEveryNumberMinutes = Convert.ToInt32(comboBoxBarcodeMinutesCount.Text);
 
                 shiftRun.barCodeCheckAtCount = Convert.ToInt32(comboBoxBarcodeCount.Text);
+                shiftRun.barCodeCheckEveryNumberMinutes = Convert.ToInt32(comboBoxBarcodeMinutesCount.Text);
                 shiftRun.isBarcodeChecker = checkBoxBarcode.Checked;
 
                 shiftRun.barCodeEmailNotificationList = richTextBoxEmailTo.Text;
@@ -201,8 +211,9 @@ namespace PortMainScaleTest
             Properties.Settings.Default.ManualCOMsettings = comboBoxManual.Text;
             Properties.Settings.Default.checkBoxSaveToNewFormat = checkBoxSaveToNewFormat.Checked;
             Properties.Settings.Default.isBarcodeChecker = checkBoxBarcode.Checked;
+            Properties.Settings.Default.isCheckAtCount = checkBoxIsEveryCount.Checked;
+            Properties.Settings.Default.isCheckAtTime = checkBoxIsEveryMinute.Checked;
             
-            Properties.Settings.Default.barcodeCheckerCountType = comboBoxBarcodeCountType.Text;
             Properties.Settings.Default.barCodeEmailNotificationList = richTextBoxEmailTo.Text;
             Properties.Settings.Default.barCodeEmailNotificationListCC = richTextBoxEmailToCC.Text;
             Properties.Settings.Default.Save();
@@ -279,6 +290,31 @@ namespace PortMainScaleTest
             if (!checkBoxBarcode.Checked)
             {
                 shiftRun.isBarcodeChecker = false; //BarCode checker is OFF
+            }
+        }
+
+        //Check Every N count OFF/ON
+        private void checkBoxIsEveryCount_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxIsEveryCount.Checked) {
+                shiftRun.isCheckAtCount = true; // Check at count is ON
+            }
+            if (!checkBoxIsEveryCount.Checked)
+            {
+                shiftRun.isCheckAtCount = false; // Check at count is OFF
+            }
+        }
+
+        //Check Every Minute OFF/ON
+        private void checkBoxIsEveryMinute_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxIsEveryMinute.Checked)
+            {
+                shiftRun.isCheckAtTime = true; // Check every Minute is ON
+            }
+            if (!checkBoxIsEveryMinute.Checked)
+            {
+                shiftRun.isCheckAtTime = false; // Check every Minute is OFF
             }
         }
     }

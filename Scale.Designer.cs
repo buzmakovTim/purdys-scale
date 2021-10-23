@@ -992,7 +992,7 @@
             // 
             this.labelWarning.AutoSize = true;
             this.labelWarning.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelWarning.ForeColor = System.Drawing.Color.White;
             this.labelWarning.Location = new System.Drawing.Point(529, 34);
             this.labelWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWarning.Name = "labelWarning";

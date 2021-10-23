@@ -245,9 +245,13 @@ namespace PortMainScaleTest
             shiftRun.isBarcodeChecker = Properties.Settings.Default.isBarcodeChecker; // by default it's off or Whatever settings saved
             shiftRun.barCode = "";              
             shiftRun.isBarCodeMatch = true;
-            shiftRun.barCodeCheckAtCount = Properties.Settings.Default.barcodeCheckerCount;
-            shiftRun.barCodeCountType = Properties.Settings.Default.barcodeCheckerCountType; // Ea. or Min
+            shiftRun.barCodeCheckAtCount = Properties.Settings.Default.barcodeCheckerCount; // Every 100 boxed by default
+            shiftRun.barCodeCheckEveryNumberMinutes = Properties.Settings.Default.barCodeCheckEveryNumberMinutes; // Every 30 min by default
             shiftRun.nextCheckAt = shiftRun.barCodeCheckAtCount; // Originally checking at Default value
+
+            shiftRun.isCheckAtCount = Properties.Settings.Default.isCheckAtCount; 
+            shiftRun.isCheckAtTime = Properties.Settings.Default.isCheckAtTime;
+
             shiftRun.barCodeEmailNotificationList = Properties.Settings.Default.barCodeEmailNotificationList; // Email List
             shiftRun.barCodeEmailNotificationListCC = Properties.Settings.Default.barCodeEmailNotificationListCC; // CC Email List
             //shiftRun.nextCheckAt = 10; // Originally checking at Default value
@@ -1394,22 +1398,18 @@ namespace PortMainScaleTest
             //
             //Open BarCode checker Window if condition is true
 
-            if (shiftRun.PlCount >= shiftRun.ManualCount) // For mostly from Main scale
-            {
-
-                if (shiftRun.nextCheckAt == shiftRun.PlCount && shiftRun.isBarcodeChecker == true)
-                {
-                    ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
-                    //barCodeWindowShow(); // Execute pop up window function
-                }
-
-            }
-            else { // For mostly from Manual scale
-
-                if (shiftRun.ManualCount == shiftRun.PlCount && shiftRun.isBarcodeChecker == true)
-                {
-                    ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
-                    //barCodeWindowShow(); // Execute pop up window function
+            if (shiftRun.nextCheckAt == shiftRun.PlCount && shiftRun.isBarcodeChecker == true) //POP Up BarCode checker is this TRUE
+            { 
+            
+                if (shiftRun.PlCount >= shiftRun.ManualCount) // For mostly from Main scale
+                    {
+                        ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
+                        //barCodeWindowShow(); // Execute pop up window function
+                    }
+                else 
+                    { // For mostly from Manual scale
+                        ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
+                        //barCodeWindowShow(); // Execute pop up window function
                 }
             }
             
@@ -2101,7 +2101,7 @@ namespace PortMainScaleTest
             else
             {
                 labelWarning.Visible = true;
-                labelWarning.BackColor = Color.White;
+                labelWarning.BackColor = Color.Red;
             }
         }
 

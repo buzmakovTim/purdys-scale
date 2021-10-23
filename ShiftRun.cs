@@ -84,15 +84,22 @@ namespace PortMainScaleTest
         public DateTime startTime { get; set; } // When Run starts
 
 
-        //For Bar Code 
+       //For Bar Code 
         public bool isBarcodeChecker { get; set; } // Ability to turn checker ON and OFF 
         public string barCode { get; set; } // Bar code
         public bool isBarCodeMatch { get; set; } // Is Bar code Match?
+        
         public int barCodeCheckAtCount { get; set; } // Check when count
-        public string barCodeCountType { get; set; } // Type each or minute
+        public bool isCheckAtCount { get; set; } // Does check at count?
+                                                 // 
+        public int barCodeCheckEveryNumberMinutes { get; set; } // Check every N minutes
+        public bool isCheckAtTime { get; set; } // Does check at the specific times
+
         public int nextCheckAt { get; set; } // When next box will be checking
         public string barCodeEmailNotificationList { get; set; } //List of emails for notification
         public string barCodeEmailNotificationListCC { get; set; } //CC List of emails for notification
+
+        //Spublic DateTime barCodeCheckPointTime { get; set; } // Time from what
 
 
     }
