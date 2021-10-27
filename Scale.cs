@@ -1939,6 +1939,7 @@ namespace PortMainScaleTest
 
             }
 
+            labelCountLess.Focus(); // To remove focus from the SETTINGS button.
             settings.Dispose();
         }
 

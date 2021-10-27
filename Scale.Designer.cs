@@ -611,6 +611,7 @@
             // 
             this.buttonSettinrgs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSettinrgs.BackColor = System.Drawing.Color.Purple;
+            this.buttonSettinrgs.CausesValidation = false;
             this.buttonSettinrgs.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSettinrgs.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSettinrgs.ForeColor = System.Drawing.Color.White;
@@ -619,6 +620,7 @@
             this.buttonSettinrgs.Name = "buttonSettinrgs";
             this.buttonSettinrgs.Size = new System.Drawing.Size(92, 30);
             this.buttonSettinrgs.TabIndex = 53;
+            this.buttonSettinrgs.TabStop = false;
             this.buttonSettinrgs.Text = "Settings";
             this.buttonSettinrgs.UseVisualStyleBackColor = false;
             this.buttonSettinrgs.Click += new System.EventHandler(this.buttonSettinrgs_Click);
