@@ -92,6 +92,7 @@ namespace PortMainScaleTest
             comboBoxBarcodeCount.Text = Properties.Settings.Default.barcodeCheckerCount.ToString();
             comboBoxBarcodeMinutesCount.Text = Properties.Settings.Default.barCodeCheckEveryNumberMinutes.ToString();
 
+            textBoxBarcode.Text = shiftRun.barCode; // Set Property to what already been set at the beginning.
 
 
             for (int i = 0; i < 23; i++)
@@ -176,6 +177,8 @@ namespace PortMainScaleTest
 
                 shiftRun.barCodeEmailNotificationList = richTextBoxEmailTo.Text;
                 shiftRun.barCodeEmailNotificationListCC = richTextBoxEmailToCC.Text;
+
+                shiftRun.barCode = textBoxBarcode.Text; // Set new BarCode
 
                 //
                 // Next box will be checked at

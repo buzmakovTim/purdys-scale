@@ -173,7 +173,7 @@
             this.buttonSaveSetSKU.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSaveSetSKU.Name = "buttonSaveSetSKU";
             this.buttonSaveSetSKU.Size = new System.Drawing.Size(188, 76);
-            this.buttonSaveSetSKU.TabIndex = 7;
+            this.buttonSaveSetSKU.TabIndex = 9;
             this.buttonSaveSetSKU.Text = "START";
             this.buttonSaveSetSKU.UseVisualStyleBackColor = false;
             this.buttonSaveSetSKU.Click += new System.EventHandler(this.buttonSaveSetSKU_Click);
@@ -187,7 +187,7 @@
             this.buttonCancelSKUset.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCancelSKUset.Name = "buttonCancelSKUset";
             this.buttonCancelSKUset.Size = new System.Drawing.Size(190, 76);
-            this.buttonCancelSKUset.TabIndex = 8;
+            this.buttonCancelSKUset.TabIndex = 10;
             this.buttonCancelSKUset.Text = "CANCEL";
             this.buttonCancelSKUset.UseVisualStyleBackColor = false;
             this.buttonCancelSKUset.Click += new System.EventHandler(this.buttonCancelSKUset_Click);
