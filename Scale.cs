@@ -245,9 +245,13 @@ namespace PortMainScaleTest
             shiftRun.isBarcodeChecker = Properties.Settings.Default.isBarcodeChecker; // by default it's off or Whatever settings saved
             shiftRun.barCode = "";              
             shiftRun.isBarCodeMatch = true;
-            shiftRun.barCodeCheckAtCount = Properties.Settings.Default.barcodeCheckerCount;
-            shiftRun.barCodeCountType = Properties.Settings.Default.barcodeCheckerCountType; // Ea. or Min
+            shiftRun.barCodeCheckAtCount = Properties.Settings.Default.barcodeCheckerCount; // Every 100 boxed by default
+            shiftRun.barCodeCheckEveryNumberMinutes = Properties.Settings.Default.barCodeCheckEveryNumberMinutes; // Every 30 min by default
             shiftRun.nextCheckAt = shiftRun.barCodeCheckAtCount; // Originally checking at Default value
+
+            shiftRun.isCheckAtCount = Properties.Settings.Default.isCheckAtCount; 
+            shiftRun.isCheckAtTime = Properties.Settings.Default.isCheckAtTime;
+
             shiftRun.barCodeEmailNotificationList = Properties.Settings.Default.barCodeEmailNotificationList; // Email List
             shiftRun.barCodeEmailNotificationListCC = Properties.Settings.Default.barCodeEmailNotificationListCC; // CC Email List
             //shiftRun.nextCheckAt = 10; // Originally checking at Default value
@@ -515,7 +519,19 @@ namespace PortMainScaleTest
                 buttonStart.Enabled = false;
                 labelShift.Visible = true;
                 labelShift.Text = shiftRun.Shift;
-                labelBarcode.Text = "Barcode - " + shiftRun.barCode;
+
+                //
+                // BarCode Label Set Start
+                if (shiftRun.barCode != "")
+                {
+                    labelBarcode.Visible = true;
+                    labelBarcode.Text = "Barcode - " + shiftRun.barCode;
+                }
+                else {
+                    labelBarcode.Visible = false;
+                }
+                // BarCode Label Set Start End
+                //
 
                 dataSaved = false; // Prep for saving
                 //labelCHorKW.Text = shiftRun.Location; // Location when app starts
@@ -599,7 +615,7 @@ namespace PortMainScaleTest
                 warningMessage(shiftRun.Warning);
                 shiftRun.DataFromPLScale = "";
 
-                Logger.ERROR("Exeption thrown! (PLScale_DataReceived): " + ex);
+                Logger.ERROR("Exception thrown! (PLScale_DataReceived): " + ex);
             }
         }
 
@@ -636,7 +652,7 @@ namespace PortMainScaleTest
                 warningMessage(shiftRun.Warning);
                 shiftRun.DataFromManualScale = "";
 
-                Logger.ERROR("Exeption thrown! (ManualScale_DataReceived): " + ex);
+                Logger.ERROR("Exception thrown! (ManualScale_DataReceived): " + ex);
             }
         }
 
@@ -703,7 +719,7 @@ namespace PortMainScaleTest
 
                     labelCountHeavy.Text = shiftRun.HeavyCount.ToString(); // Update total Heavy count
 
-                    Logger.DEBUG("Weigth Error HEAVY collection (Data comes from PL scale) RAW Data: " + rawDataFromPLScaleNotFormated);
+                    Logger.DEBUG("Weight Error HEAVY collection (Data comes from PL scale) RAW Data: " + rawDataFromPLScaleNotFormated);
 
                     countPLScale++; // Get count ready for next box
                     
@@ -793,7 +809,7 @@ namespace PortMainScaleTest
                     labelCount.Text = shiftRun.PlCount.ToString(); // // PL Scale Value update
                     label_plData.Text = rawDataFromPLScaleNotFormated; // Straight from scale not formated and NOT converted to Double
 
-                    Logger.DEBUG("Weigth Error LESS collection (Data comes from PL scale) RAW Data: " + rawDataFromPLScaleNotFormated);
+                    Logger.DEBUG("Weight Error LESS collection (Data comes from PL scale) RAW Data: " + rawDataFromPLScaleNotFormated);
 
                     labelCountLess.Text = shiftRun.LessCount.ToString(); // Update total Less count
                     
@@ -921,7 +937,7 @@ namespace PortMainScaleTest
                     labelAdjusted.Text = shiftRun.ManualCount.ToString(); // Adjusted Scale Value update
                     label_manualData.Text = rawDataFromManualScaleNotFormated; // Straight from scale not formated and NOT converted to Double
 
-                    Logger.DEBUG("Weigth Error HEAVY collection (Data comes from Manual scale) RAW Data: " + rawDataFromManualScaleNotFormated);
+                    Logger.DEBUG("Weight Error HEAVY collection (Data comes from Manual scale) RAW Data: " + rawDataFromManualScaleNotFormated);
 
                     labelCountHeavy.Text = shiftRun.HeavyCount.ToString(); // Update total Heavy count
                     
@@ -1394,22 +1410,18 @@ namespace PortMainScaleTest
             //
             //Open BarCode checker Window if condition is true
 
-            if (shiftRun.PlCount >= shiftRun.ManualCount) // For mostly from Main scale
-            {
-
-                if (shiftRun.nextCheckAt == shiftRun.PlCount && shiftRun.isBarcodeChecker == true)
-                {
-                    ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
-                    //barCodeWindowShow(); // Execute pop up window function
-                }
-
-            }
-            else { // For mostly from Manual scale
-
-                if (shiftRun.ManualCount == shiftRun.PlCount && shiftRun.isBarcodeChecker == true)
-                {
-                    ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
-                    //barCodeWindowShow(); // Execute pop up window function
+            if (shiftRun.barCode != "" && shiftRun.nextCheckAt == shiftRun.PlCount && shiftRun.isBarcodeChecker == true) //POP Up BarCode checker is this TRUE
+            { 
+            
+                if (shiftRun.PlCount >= shiftRun.ManualCount) // For mostly from Main scale
+                    {
+                        ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
+                        //barCodeWindowShow(); // Execute pop up window function
+                    }
+                else 
+                    { // For mostly from Manual scale
+                        ThreadPool.QueueUserWorkItem(state => barCodeWindowShow());
+                        //barCodeWindowShow(); // Execute pop up window function
                 }
             }
             
@@ -1877,6 +1889,19 @@ namespace PortMainScaleTest
 
             if (settings.ShowDialog() == DialogResult.OK)
             {
+                //
+                // BarCode Label Set Start
+                if (shiftRun.barCode != "")
+                {
+                    labelBarcode.Visible = true;
+                    labelBarcode.Text = "Barcode - " + shiftRun.barCode;
+                }
+                else
+                {
+                    labelBarcode.Visible = false;
+                }
+                // BarCode Label Set Start End
+                //
 
                 labelPackLineNumberData.Text = shiftRun.PackLineNumber.ToString();
                 labelCHorKW.Text = shiftRun.Location;
@@ -1939,6 +1964,7 @@ namespace PortMainScaleTest
 
             }
 
+            labelCountLess.Focus(); // To remove focus from the SETTINGS button.
             settings.Dispose();
         }
 
@@ -2101,7 +2127,7 @@ namespace PortMainScaleTest
             else
             {
                 labelWarning.Visible = true;
-                labelWarning.BackColor = Color.White;
+                labelWarning.BackColor = Color.Red;
             }
         }
 

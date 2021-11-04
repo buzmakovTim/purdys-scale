@@ -611,6 +611,7 @@
             // 
             this.buttonSettinrgs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSettinrgs.BackColor = System.Drawing.Color.Purple;
+            this.buttonSettinrgs.CausesValidation = false;
             this.buttonSettinrgs.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSettinrgs.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSettinrgs.ForeColor = System.Drawing.Color.White;
@@ -619,6 +620,7 @@
             this.buttonSettinrgs.Name = "buttonSettinrgs";
             this.buttonSettinrgs.Size = new System.Drawing.Size(92, 30);
             this.buttonSettinrgs.TabIndex = 53;
+            this.buttonSettinrgs.TabStop = false;
             this.buttonSettinrgs.Text = "Settings";
             this.buttonSettinrgs.UseVisualStyleBackColor = false;
             this.buttonSettinrgs.Click += new System.EventHandler(this.buttonSettinrgs_Click);
@@ -945,7 +947,7 @@
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(70, 17);
             this.labelVersion.TabIndex = 78;
-            this.labelVersion.Text = "Scale v6.0";
+            this.labelVersion.Text = "Scale v6.1";
             // 
             // panel3
             // 
@@ -992,7 +994,7 @@
             // 
             this.labelWarning.AutoSize = true;
             this.labelWarning.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelWarning.ForeColor = System.Drawing.Color.White;
             this.labelWarning.Location = new System.Drawing.Point(529, 34);
             this.labelWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWarning.Name = "labelWarning";
